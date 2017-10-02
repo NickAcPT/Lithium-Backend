@@ -1,15 +1,8 @@
 ![Lithium Logo](https://i.imgur.com/LDEckzI.png "Lithium logo")
-# Lithium-Backend
-The backend of Lithium.
-
-This repo contains the objects that are serialized and sent between the client and the server. (No client/server specific code)
-
----
-## What is Lithium ?
-Lithium is an UI Framework for Spigot servers. Lithium makes use of a **client mod** to allow plugin developers to create cool looking interfaces.
 
 ---
 # Lithium Framework
+Lithium is an UI Framework for Spigot servers. Lithium makes use of a **client mod** to allow plugin developers to create cool looking interfaces.
 
 ## Lithium Window
 All interfaces shown to the player, are created using a `LWindow` (Lithium Window).
