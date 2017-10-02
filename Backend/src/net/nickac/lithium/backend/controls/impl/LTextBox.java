@@ -35,8 +35,7 @@ public class LTextBox extends LControl {
 	//Event Load
 	private transient List<TextBoxEventHandler> textChangedHandlers = new ArrayList<>();
 
-	public LTextBox(String text) {
-		setText(text);
+	public LTextBox() {
 	}
 
 	public LTextBox onTextChanged(TextBoxEventHandler hl) {
