@@ -17,9 +17,9 @@
 
 package net.nickac.lithium.backend.controls;
 
-import net.nickac.lithium.backend.other.Dimension;
 import net.nickac.lithium.backend.other.LithiumConstants;
-import net.nickac.lithium.backend.other.Point;
+import net.nickac.lithium.backend.other.objects.Dimension;
+import net.nickac.lithium.backend.other.objects.Point;
 
 import java.util.UUID;
 

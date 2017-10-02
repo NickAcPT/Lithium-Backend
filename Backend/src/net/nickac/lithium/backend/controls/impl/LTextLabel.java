@@ -18,7 +18,7 @@
 package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.LControl;
-import net.nickac.lithium.backend.other.Color;
+import net.nickac.lithium.backend.other.objects.Color;
 
 /**
  * Created by NickAc for Lithium!

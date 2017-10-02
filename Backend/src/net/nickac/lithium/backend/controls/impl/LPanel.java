@@ -19,8 +19,8 @@ package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.LContainer;
 import net.nickac.lithium.backend.controls.LControl;
-import net.nickac.lithium.backend.other.Dimension;
-import net.nickac.lithium.backend.other.Point;
+import net.nickac.lithium.backend.other.objects.Dimension;
+import net.nickac.lithium.backend.other.objects.Point;
 
 import java.util.Collection;
 import java.util.HashMap;
