@@ -34,22 +34,35 @@ public class LWindow extends LControl implements LContainer {
 	private transient UUID viewer;
 	private HashMap<UUID, LControl> child = new HashMap<>();
 
-	//Event Load
-	private transient List<WindowEventHandler> windowLoadHandlers = new ArrayList<>();
-
 	public LWindow() {
 		child = new HashMap<>();
 	}
+
+	//Event Load
+	private transient List<WindowEventHandler> windowLoadHandlers = new ArrayList<>();
+
 
 	public LWindow onWindowLoad(WindowEventHandler hl) {
 		windowLoadHandlers.add(hl);
 		return this;
 	}
-	//End Event
-
 	public void invokeWindowLoad(UUID invoker) {
 		windowLoadHandlers.forEach(h -> h.handleEvent(this, invoker));
 	}
+	//End Event
+
+	//Event Load
+	private transient List<WindowEventHandler> windowCloseHandlers = new ArrayList<>();
+
+	public LWindow onWindowUnload(WindowEventHandler hl) {
+		windowCloseHandlers.add(hl);
+		return this;
+	}
+
+	public void invokeWindowClose(UUID invoker) {
+		windowCloseHandlers.forEach(h -> h.handleEvent(this, invoker));
+	}
+	//End Event
 
 	public UUID getViewer() {
 		return viewer;
