@@ -130,9 +130,16 @@ public interface ILithiumControl extends Serializable {
 	 * @return The location of the left side of the control
 	 */
 
-
+	/**
+	 * Refresh this control.<br>
+	 * The control will be resent to the client and will be updated.
+	 */
 	void refresh();
 
+	/**
+	 * Dispose this control.<br>
+	 * This control will be removed from the parent and from the client.
+	 */
 	void dispose();
 
 	Object getTag();
