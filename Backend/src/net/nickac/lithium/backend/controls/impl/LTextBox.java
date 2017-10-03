@@ -44,7 +44,7 @@ public class LTextBox extends LControl {
 	}
 	//End Event
 
-	public void TextChanged(UUID invoker) {
+	public void invokeTextChanged(UUID invoker) {
 		textChangedHandlers.forEach(h -> h.handleEvent(this, invoker));
 	}
 
