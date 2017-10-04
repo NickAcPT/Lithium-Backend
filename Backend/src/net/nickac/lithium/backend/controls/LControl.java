@@ -131,8 +131,13 @@ public class LControl implements ILithiumControl {
 
 	@Override
 	public void refresh() {
-		if (LithiumConstants.onRefresh != null && parent != null && parent.getViewer() != null)
-			LithiumConstants.onRefresh.onRefresh(parent.getViewer(), this);
+		try {
+			if (LithiumConstants.onRefresh != null && parent != null && parent.getViewer() != null)
+				LithiumConstants.onRefresh.onRefresh(parent.getViewer(), this);
+
+		} catch (NullPointerException ex) {
+			//Sorry! I had to do this....
+		}
 	}
 
 	@Override
