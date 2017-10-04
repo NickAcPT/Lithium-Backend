@@ -48,6 +48,11 @@ public class LTextBox extends LControl {
 		textChangedHandlers.forEach(h -> h.handleEvent(this, invoker));
 	}
 
+	/**
+	 * The max length of the text
+	 *
+	 * @return the max length
+	 */
 	public int getMaxStringLength() {
 		return maxStringLength;
 	}
@@ -61,9 +66,24 @@ public class LTextBox extends LControl {
 		return text;
 	}
 
+	/**
+	 * Sets this textbox's text without refreshing it on the client!
+	 *
+	 * @param text The new text
+	 */
+	public void setInternalText(String text) {
+		this.text = text;
+	}
+
+	/**
+	 * Set this textbox's text and refreshes it on the client!
+	 * @param text The new text
+	 * @return This object to allow chained calls
+	 */
 	@Override
 	public LTextBox setText(String text) {
-		this.text = text;
+		setInternalText(text);
+		refresh();
 		return this;
 	}
 }
