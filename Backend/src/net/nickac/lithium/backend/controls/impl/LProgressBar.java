@@ -39,6 +39,9 @@ public class LProgressBar extends LControl {
 	private int minValue = 0;
 	private int maxValue = 100;
 
+	public LProgressBar() {
+	}
+
 	public LProgressBar(int progress) {
 		this.progress = progress;
 	}
