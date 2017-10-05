@@ -100,22 +100,24 @@ public class LControl implements ILithiumControl {
 
 	@Override
 	public int getLeft() {
-		return location.getX();
+		int parentOffsetX = (parent != null && parent instanceof LControl ? ((LControl) parent).getLocation().getX() : 0);
+		return parentOffsetX + location.getX();
 	}
 
 	@Override
 	public int getRight() {
-		return location.getX() + size.getWidth();
+		return getLeft() + size.getWidth();
 	}
 
 	@Override
 	public int getTop() {
-		return location.getY();
+		int parentOffsetY = (parent != null && parent instanceof LControl ? ((LControl) parent).getLocation().getY() : 0);
+		return parentOffsetY + location.getY();
 	}
 
 	@Override
 	public int getBottom() {
-		return location.getY() + size.getHeight();
+		return getTop() + size.getHeight();
 	}
 
 	public LControl setCentered(CenterOptions options) {
