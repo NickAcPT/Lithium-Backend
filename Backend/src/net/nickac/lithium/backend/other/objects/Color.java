@@ -96,4 +96,17 @@ public class Color implements Serializable {
 		this.blue = Math.min(blue, 255);
 	}
 
+	public long getHexColor() {
+		String r = Integer.toHexString(getRed());
+		r = r.equals("0") ? "00" : r;
+		String g = Integer.toHexString(getGreen());
+		g = g.equals("0") ? "00" : g;
+		String b = Integer.toHexString(getBlue());
+		b = b.equals("0") ? "00" : b;
+		String a = Integer.toHexString(getAlpha());
+		a = a.equals("0") ? "00" : a;
+
+		return Long.parseLong(a + r + g + b, 16);
+	}
+	
 }
