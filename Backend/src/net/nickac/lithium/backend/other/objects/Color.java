@@ -36,6 +36,7 @@ public class Color implements Serializable {
 	public transient static Color GREEN = new Color(0, 255, 0);
 	public transient static Color BLUE = new Color(0, 0, 255);
 	public transient static Color WHITE = new Color(255, 255, 255);
+	public transient static Color GRAY = new Color(128, 128, 128);
 	public transient static Color BLACK = new Color(0, 0, 0);
 
 	private int alpha = 255;
