@@ -37,19 +37,10 @@ import java.util.UUID;
  * Created by NickAc for Lithium!
  */
 public class LPanel extends LControl implements LContainer {
-	private CenterOptions centerOptions = CenterOptions.NONE;
 	private HashMap<UUID, LControl> child = new HashMap<>();
 
 	public LPanel() {
 		child = new HashMap<>();
-	}
-
-	public CenterOptions getCenterOptions() {
-		return centerOptions;
-	}
-
-	public void setCenterOptions(CenterOptions centerOptions) {
-		this.centerOptions = centerOptions;
 	}
 
 	@Override

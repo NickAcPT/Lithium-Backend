@@ -38,6 +38,11 @@ import static net.nickac.lithium.backend.other.LithiumConstants.CENTERED_CONSTAN
  */
 public class LControl implements ILithiumControl {
 
+	private CenterOptions centerOptions = CenterOptions.NONE;
+
+	public CenterOptions getCentered() {
+		return centerOptions;
+	}
 	private LContainer parent;
 	private UUID uuid;
 	private String text;
