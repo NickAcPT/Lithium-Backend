@@ -36,7 +36,7 @@ import java.util.UUID;
  */
 public class LTextBox extends LControl {
 
-	private String text;
+	private String text = "";
 	private int maxStringLength = 23;
 
 	//Event Load
