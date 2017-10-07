@@ -44,9 +44,9 @@ public class LithiumConstants {
 	public static String LITHIUM_CLOSE_WINDOW = "LITHIUM|CLOSE_WINDOW"; //
 	//End Action Section
 
-	//Start Dummy Section
+	//Start Event Section
 	public static LithiumRefreshControlHandler onRefresh = null;
 	public static LithiumCloseWindowHandler onClose = null;
-	//End Dummy Section
+	//End Event Section
 	public static int CENTERED_CONSTANT = -2;
 }
