@@ -34,6 +34,7 @@ public class Color implements Serializable {
 
 	public transient static Color RED = new Color(255, 0, 0);
 	public transient static Color GREEN = new Color(0, 255, 0);
+	public transient static Color DARK_GREEN = new Color(3, 85, 47);
 	public transient static Color BLUE = new Color(0, 0, 255);
 	public transient static Color WHITE = new Color(255, 255, 255);
 	public transient static Color GRAY = new Color(128, 128, 128);
@@ -98,13 +99,13 @@ public class Color implements Serializable {
 
 	public long getHexColor() {
 		String r = Integer.toHexString(getRed());
-		r = r.equals("0") ? "00" : r;
+		r = r.length() < 2 ? "0" + r : r;
 		String g = Integer.toHexString(getGreen());
-		g = g.equals("0") ? "00" : g;
+		g = g.length() < 2 ? "0" + g : g;
 		String b = Integer.toHexString(getBlue());
-		b = b.equals("0") ? "00" : b;
+		b = b.length() < 2 ? "0" + b : b;
 		String a = Integer.toHexString(getAlpha());
-		a = a.equals("0") ? "00" : a;
+		a = a.length() < 2 ? "0" + a : a;
 
 		return Long.parseLong(a + r + g + b, 16);
 	}
