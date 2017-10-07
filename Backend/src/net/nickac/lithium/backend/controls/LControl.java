@@ -30,8 +30,6 @@ import net.nickac.lithium.backend.other.objects.Point;
 
 import java.util.UUID;
 
-import static net.nickac.lithium.backend.other.LithiumConstants.CENTERED_CONSTANT;
-
 /**
  * This is the base control for Lithium.
  * All Lithium controls must extend this class
@@ -39,16 +37,21 @@ import static net.nickac.lithium.backend.other.LithiumConstants.CENTERED_CONSTAN
 public class LControl implements ILithiumControl {
 
 	private CenterOptions centerOptions = CenterOptions.NONE;
-
-	public CenterOptions getCentered() {
-		return centerOptions;
-	}
 	private LContainer parent;
 	private UUID uuid;
 	private String text;
 	private Dimension size = Dimension.EMPTY;
 	private Point location = Point.EMPTY;
 	private transient Object tag;
+
+	public CenterOptions getCentered() {
+		return centerOptions;
+	}
+
+	public LControl setCentered(CenterOptions options) {
+		centerOptions = options;
+		return this;
+	}
 
 	@Override
 	public LContainer getParent() {
@@ -105,40 +108,25 @@ public class LControl implements ILithiumControl {
 
 	@Override
 	public int getLeft() {
-		return location.getX();
+		int parentOffset = getParent() != null && getParent() instanceof LControl ? ((LControl) getParent()).getLeft() : 0;
+
+		return parentOffset + location.getX();
 	}
 
 	@Override
 	public int getRight() {
-		return location.getX() + size.getWidth();
+		return getLeft() + size.getWidth();
 	}
 
 	@Override
 	public int getTop() {
-		return location.getY();
+		int parentOffset = getParent() != null && getParent() instanceof LControl ? ((LControl) getParent()).getTop() : 0;
+		return parentOffset + location.getY();
 	}
 
 	@Override
 	public int getBottom() {
-		return location.getY() + size.getHeight();
-	}
-
-	public LControl setCentered(CenterOptions options) {
-		switch (options) {
-			case NONE:
-				setLocation(Point.EMPTY);
-				break;
-			case HORIZONTAL:
-				setLocation(new Point(CENTERED_CONSTANT, getLocation().getY()));
-				break;
-			case VERTICAL:
-				setLocation(new Point(getLocation().getX(), CENTERED_CONSTANT));
-				break;
-			case HORIZONTAL_VERTICAL:
-				setLocation(new Point(CENTERED_CONSTANT, CENTERED_CONSTANT));
-				break;
-		}
-		return this;
+		return getTop() + size.getHeight();
 	}
 
 	@Override
