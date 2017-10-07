@@ -84,6 +84,7 @@ public class LTextBox extends LControl {
 
 	/**
 	 * Set this textbox's text and refreshes it on the client!
+	 *
 	 * @param text The new text
 	 * @return This object to allow chained calls
 	 */

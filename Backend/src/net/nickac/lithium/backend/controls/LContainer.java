@@ -40,18 +40,21 @@ public interface LContainer {
 
 	/**
 	 * Gets the controls of this container.
+	 *
 	 * @return The collection of Lithium Controls of this container.
 	 */
 	Collection<LControl> getControls();
 
 	/**
 	 * Adds a control to this container.
+	 *
 	 * @param c The control that will be added to the container.
 	 */
 	void addControl(LControl c);
 
 	/**
 	 * Adds a control to this container.
+	 *
 	 * @param c The control that will be added
 	 * @param x X position of the control
 	 * @param y Y position of the control
@@ -62,6 +65,7 @@ public interface LContainer {
 
 	/**
 	 * Adds a control to this container.
+	 *
 	 * @param c The control that will be added
 	 * @param w Width of the control
 	 * @param h Height of the control
@@ -70,12 +74,14 @@ public interface LContainer {
 
 	/**
 	 * Removes a control from this container by an UUID
+	 *
 	 * @param c The UUID of the control that will be removed
 	 */
 	void removeControl(UUID c);
 
 	/**
 	 * Removes a control from this container.
+	 *
 	 * @param c The control instance to be removed
 	 */
 	void removeControl(LControl c);

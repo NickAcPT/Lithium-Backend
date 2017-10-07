@@ -109,5 +109,5 @@ public class Color implements Serializable {
 
 		return Long.parseLong(a + r + g + b, 16);
 	}
-	
+
 }

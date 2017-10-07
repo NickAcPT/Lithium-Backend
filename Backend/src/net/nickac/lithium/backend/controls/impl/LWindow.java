@@ -53,6 +53,7 @@ public class LWindow extends LControl implements LContainer {
 		windowLoadHandlers.add(hl);
 		return this;
 	}
+
 	public void invokeWindowLoad(UUID invoker) {
 		windowLoadHandlers.forEach(h -> h.handleEvent(this, invoker));
 	}
