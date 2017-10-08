@@ -36,6 +36,7 @@ import java.util.UUID;
  */
 public class LTextBox extends LControl {
 
+	private boolean passwordField = false;
 	private String text = "";
 	private int maxStringLength = 23;
 
@@ -49,10 +50,19 @@ public class LTextBox extends LControl {
 		textChangedHandlers.add(hl);
 		return this;
 	}
+
 	//End Event
 
 	public void invokeTextChanged(UUID invoker) {
 		textChangedHandlers.forEach(h -> h.handleEvent(this, invoker));
+	}
+
+	public boolean isPasswordField() {
+		return passwordField;
+	}
+
+	public void setPasswordField(boolean passwordField) {
+		this.passwordField = passwordField;
 	}
 
 	/**
@@ -74,15 +84,6 @@ public class LTextBox extends LControl {
 	}
 
 	/**
-	 * Sets this textbox's text without refreshing it on the client!
-	 *
-	 * @param text The new text
-	 */
-	public void setInternalText(String text) {
-		this.text = text;
-	}
-
-	/**
 	 * Set this textbox's text and refreshes it on the client!
 	 *
 	 * @param text The new text
@@ -93,5 +94,14 @@ public class LTextBox extends LControl {
 		setInternalText(text);
 		refresh();
 		return this;
+	}
+
+	/**
+	 * Sets this textbox's text without refreshing it on the client!
+	 *
+	 * @param text The new text
+	 */
+	public void setInternalText(String text) {
+		this.text = text;
 	}
 }

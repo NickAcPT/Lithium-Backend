@@ -36,6 +36,6 @@ public interface ILithiumControlRenderer<L extends LControl, G> {
 
 	void mouseClick(L control, G gui, int mouseX, int mouseY);
 
-	void mouseMove(L control, G gui, int mouseX, int mouseY)
+	void mouseMove(L control, G gui, int mouseX, int mouseY);
 
 }
