@@ -38,7 +38,11 @@ public class LCheckBox extends LControl {
 	}
 
 	public void setChecked(boolean checked) {
-		this.checked = checked;
+		setCheckedInternal(checked);
 		refresh();
+	}
+
+	public void setCheckedInternal(boolean checked) {
+		this.checked = checked;
 	}
 }
