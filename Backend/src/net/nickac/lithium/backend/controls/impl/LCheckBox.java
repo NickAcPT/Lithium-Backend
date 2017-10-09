@@ -31,6 +31,10 @@ import net.nickac.lithium.backend.controls.LControl;
  */
 public class LCheckBox extends LControl {
 
+	public LCheckBox(String text) {
+		setText(text);
+	}
+
 	private boolean checked;
 
 	public boolean isChecked() {
