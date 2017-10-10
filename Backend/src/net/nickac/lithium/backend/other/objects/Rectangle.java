@@ -46,6 +46,22 @@ public class Rectangle {
 		return new Rectangle(left, top, right - left, bottom - top);
 	}
 
+	public int getX() {
+		return corner.getX();
+	}
+
+	public int getY() {
+		return corner.getY();
+	}
+
+	public int getWidth() {
+		return size.getWidth();
+	}
+
+	public int getHeight() {
+		return size.getHeight();
+	}
+
 	public int getTop() {
 		return corner.getY();
 	}
@@ -64,6 +80,10 @@ public class Rectangle {
 
 	public Rectangle inflate(int x, int y) {
 		return new Rectangle(corner.getX() - x, corner.getY() - y, size.getWidth() + x * 2, size.getHeight() + y * 2);
+	}
+
+	public boolean contains(Point p) {
+		return p.getX() >= getLeft() && p.getX() <= getRight() && p.getY() >= getTop() && p.getY() <= getBottom();
 	}
 
 }
