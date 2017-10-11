@@ -32,13 +32,21 @@ import net.nickac.lithium.backend.other.objects.Color;
  */
 public class LCheckBox extends LControl {
 
+	private Color foreColor = Color.WHITE;
 	private Color outsideColor = Color.GRAY;
 	private Color insideColor = Color.BLACK;
 	private Color checkedColor = Color.GRAY;
 	private boolean checked;
-
 	public LCheckBox(String text) {
 		setText(text);
+	}
+
+	public Color getForeColor() {
+		return foreColor;
+	}
+
+	public void setForeColor(Color foreColor) {
+		this.foreColor = foreColor;
 	}
 
 	public Color getOutsideColor() {
