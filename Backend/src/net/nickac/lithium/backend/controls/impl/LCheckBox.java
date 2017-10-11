@@ -25,17 +25,45 @@
 package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.LControl;
+import net.nickac.lithium.backend.other.objects.Color;
 
 /**
  * Created by NickAc for Lithium!
  */
 public class LCheckBox extends LControl {
 
+	private Color outsideColor = Color.GRAY;
+	private Color insideColor = Color.BLACK;
+	private Color checkedColor = Color.GRAY;
+	private boolean checked;
+
 	public LCheckBox(String text) {
 		setText(text);
 	}
 
-	private boolean checked;
+	public Color getOutsideColor() {
+		return outsideColor;
+	}
+
+	public void setOutsideColor(Color outsideColor) {
+		this.outsideColor = outsideColor;
+	}
+
+	public Color getInsideColor() {
+		return insideColor;
+	}
+
+	public void setInsideColor(Color insideColor) {
+		this.insideColor = insideColor;
+	}
+
+	public Color getCheckedColor() {
+		return checkedColor;
+	}
+
+	public void setCheckedColor(Color checkedColor) {
+		this.checkedColor = checkedColor;
+	}
 
 	public boolean isChecked() {
 		return checked;
