@@ -43,7 +43,7 @@ public class LithiumConstants {
 	public static String LITHIUM_TEXTBOX_TEXT_CHANGED = "LITHIUM|TEXTBOX_CHANGED|"; //UUID|TEXT
 	public static String LITHIUM_CLOSE_WINDOW = "LITHIUM|CLOSE_WINDOW"; //
 
-	public static String LITHIUM_TOGGLE_ACTION = "LITHIUM|TOGGLE_ACTION|"; //UUID|
+	public static String LITHIUM_TOGGLE_ACTION = "LITHIUM|TOGGLE_ACTION|"; //UUID
 
 
 	//End Action Section

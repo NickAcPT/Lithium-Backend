@@ -31,5 +31,5 @@ package net.nickac.lithium.backend.controls;
 public interface IToggleable {
 	boolean isChecked();
 
-	void setChecked();
+	void setChecked(boolean checked);
 }

@@ -20,6 +20,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
+ *
  */
 
 package net.nickac.lithium.backend.controls.impl;
@@ -31,14 +32,15 @@ import net.nickac.lithium.backend.other.objects.Color;
 /**
  * Created by NickAc for Lithium!
  */
-public class LCheckBox extends LControl implements IToggleable {
+public class LRadioButton extends LControl implements IToggleable {
 
 	private Color foreColor = Color.WHITE;
 	private Color outsideColor = Color.GRAY;
 	private Color insideColor = Color.BLACK;
 	private Color checkedColor = Color.GRAY;
 	private boolean checked;
-	public LCheckBox(String text) {
+
+	public LRadioButton(String text) {
 		setText(text);
 	}
 
