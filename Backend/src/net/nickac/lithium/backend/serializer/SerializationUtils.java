@@ -54,7 +54,7 @@ public class SerializationUtils {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static <T extends Serializable> T stringToObject(String string, Class<T> clazz) {
+	public static <T extends Serializable> T stringToObject(String string, Class<T> clazz) throws IllegalArgumentException {
 		byte[] bytes = Base64.getDecoder().decode(string.getBytes());
 		T object = null;
 		try {
