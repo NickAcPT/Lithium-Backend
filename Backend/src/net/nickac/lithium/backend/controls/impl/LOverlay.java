@@ -26,7 +26,10 @@ package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.LContainer;
 import net.nickac.lithium.backend.controls.LControl;
+import net.nickac.lithium.backend.other.objects.Dimension;
+import net.nickac.lithium.backend.other.objects.Point;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.UUID;
 
@@ -34,40 +37,53 @@ import java.util.UUID;
  * Created by NickAc for Lithium!
  */
 public class LOverlay extends LControl implements LContainer {
-
+	private UUID viewer;
+	private Collection<LControl> controls = new ArrayList<>();
 
 	@Override
 	public UUID getViewer() {
-		return null;
+		return viewer;
 	}
 
 	@Override
 	public Collection<LControl> getControls() {
-		return null;
+		return controls;
 	}
 
 	@Override
 	public void addControl(LControl c) {
+		controls.add(c);
+		internalAddControl(c);
+	}
+
+	private void internalAddControl(LControl c) {
+
+	}
+
+	private void internalRemoveControl(UUID c) {
 
 	}
 
 	@Override
 	public void addControl(LControl c, int x, int y, int w, int h) {
-
+		c.setSize(new Dimension(w, h));
+		c.setLocation(new Point(x, y));
+		addControl(c);
 	}
 
 	@Override
 	public void addControl(LControl c, int w, int h) {
-
+		c.setSize(new Dimension(w, h));
+		addControl(c);
 	}
 
 	@Override
 	public void removeControl(UUID c) {
-
+		internalRemoveControl(c);
 	}
 
 	@Override
 	public void removeControl(LControl c) {
-
+		internalRemoveControl(c.getUUID());
 	}
 }
