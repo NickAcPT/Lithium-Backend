@@ -54,6 +54,15 @@ public class LWindow extends LControl implements LContainer {
 		return this;
 	}
 
+	/*
+	In order to dispose a window, we just close it.
+	The mod and the plugin will do the rest.
+	*/
+	@Override
+	public void dispose() {
+		close();
+	}
+
 	public void invokeWindowLoad(UUID invoker) {
 		windowLoadHandlers.forEach(h -> h.handleEvent(this, invoker));
 	}
@@ -85,6 +94,12 @@ public class LWindow extends LControl implements LContainer {
 		if (c.getParent() == null) c.setParent(this);
 		child.put(c.getUUID(), c);
 		refresh();
+		try {
+			if (LithiumConstants.onControlRuntime != null && getViewer() != null)
+				LithiumConstants.onControlRuntime.addControl(c, this, getViewer());
+		} catch (NullPointerException ex) {
+			//Sorry! I had to do this....
+		}
 	}
 
 	@Override
@@ -106,8 +121,17 @@ public class LWindow extends LControl implements LContainer {
 	@SuppressWarnings("WeakerAccess")
 	@Override
 	public void removeControl(UUID c) {
+		LControl toRemove = child.getOrDefault(c, null);
 		child.remove(c);
 		refresh();
+		if (toRemove != null) {
+			try {
+				if (LithiumConstants.onControlRuntime != null && getViewer() != null)
+					LithiumConstants.onControlRuntime.removeControl(toRemove, this, getViewer());
+			} catch (NullPointerException ex) {
+				//Sorry! I had to do this....
+			}
+		}
 	}
 
 	@Override

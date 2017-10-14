@@ -26,6 +26,7 @@ package net.nickac.lithium.backend.other;
 
 import net.nickac.lithium.backend.other.serverhandlers.LithiumCloseWindowHandler;
 import net.nickac.lithium.backend.other.serverhandlers.LithiumRefreshControlHandler;
+import net.nickac.lithium.backend.other.serverhandlers.LithiumRuntimeControlHandler;
 
 /**
  * Created by NickAc for Lithium!
@@ -55,6 +56,7 @@ public class LithiumConstants {
 	//Start Event Section
 	public static LithiumRefreshControlHandler onRefresh = null;
 	public static LithiumCloseWindowHandler onClose = null;
+	public static LithiumRuntimeControlHandler onControlRuntime = null;
 	//End Event Section
 	public static int CENTERED_CONSTANT = -2;
 }

@@ -26,6 +26,7 @@ package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.LContainer;
 import net.nickac.lithium.backend.controls.LControl;
+import net.nickac.lithium.backend.other.LithiumConstants;
 import net.nickac.lithium.backend.other.objects.Dimension;
 import net.nickac.lithium.backend.other.objects.Point;
 
@@ -48,6 +49,12 @@ public class LPanel extends LControl implements LContainer {
 		c.setParent(this);
 		child.put(c.getUUID(), c);
 		refresh();
+		try {
+			if (LithiumConstants.onControlRuntime != null && getViewer() != null)
+				LithiumConstants.onControlRuntime.addControl(c, this, getViewer());
+		} catch (NullPointerException ex) {
+			//Sorry! I had to do this....
+		}
 	}
 
 	@Override
@@ -91,8 +98,17 @@ public class LPanel extends LControl implements LContainer {
 	@SuppressWarnings("WeakerAccess")
 	@Override
 	public void removeControl(UUID c) {
+		LControl toRemove = child.getOrDefault(c, null);
 		child.remove(c);
 		refresh();
+		if (toRemove != null) {
+			try {
+				if (LithiumConstants.onControlRuntime != null && getViewer() != null)
+					LithiumConstants.onControlRuntime.removeControl(toRemove, this, getViewer());
+			} catch (NullPointerException ex) {
+				//Sorry! I had to do this....
+			}
+		}
 	}
 
 	@Override

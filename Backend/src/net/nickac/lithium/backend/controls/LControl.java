@@ -143,6 +143,9 @@ public class LControl implements ILithiumControl {
 	@Override
 	public void dispose() {
 		//TODO: Make global Implementation to handle this
+		if (getParent() != null) {
+			getParent().removeControl(this);
+		}
 	}
 
 	@Override
