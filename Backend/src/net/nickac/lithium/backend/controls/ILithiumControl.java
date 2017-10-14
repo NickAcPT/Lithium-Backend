@@ -127,15 +127,10 @@ public interface ILithiumControl extends Serializable {
 	/**
 	 * Get the location of the bottom of this control
 	 *
-	 * @return The location of the top side of the control
+	 * @return The location of the bottom side of the control
 	 */
 	int getBottom();
 
-	/**
-	 * Get the location of the left side of this control
-	 *
-	 * @return The location of the left side of the control
-	 */
 
 	/**
 	 * Refresh this control.<br>
