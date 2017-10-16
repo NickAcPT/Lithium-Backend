@@ -45,6 +45,11 @@ public class LPanel extends LControl implements LContainer {
 	}
 
 	@Override
+	public boolean canReceiveUserInput() {
+		return false;
+	}
+
+	@Override
 	public void addControl(LControl c) {
 		c.setParent(this);
 		child.put(c.getUUID(), c);
