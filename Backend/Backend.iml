@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lombok" level="application" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-library:2.11.1" level="project" />
   </component>
 </module>

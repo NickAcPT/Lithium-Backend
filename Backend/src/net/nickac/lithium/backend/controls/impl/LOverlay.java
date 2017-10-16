@@ -29,8 +29,9 @@ import net.nickac.lithium.backend.controls.LControl;
 import net.nickac.lithium.backend.other.objects.Dimension;
 import net.nickac.lithium.backend.other.objects.Point;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -38,21 +39,30 @@ import java.util.UUID;
  */
 public class LOverlay extends LControl implements LContainer {
 	private UUID viewer;
-	private Collection<LControl> controls = new ArrayList<>();
+	private Map<UUID, LControl> controls = new HashMap<>();
+
+	@Override
+	public boolean canReceiveUserInput() {
+		return false;
+	}
 
 	@Override
 	public UUID getViewer() {
 		return viewer;
 	}
 
+	public void setViewer(UUID viewer) {
+		this.viewer = viewer;
+	}
+
 	@Override
 	public Collection<LControl> getControls() {
-		return controls;
+		return controls.values();
 	}
 
 	@Override
 	public void addControl(LControl c) {
-		controls.add(c);
+		controls.put(c.getUUID(), c);
 		internalAddControl(c);
 	}
 

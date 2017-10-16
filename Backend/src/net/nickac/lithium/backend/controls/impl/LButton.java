@@ -37,6 +37,7 @@ import java.util.UUID;
 @SuppressWarnings("UnusedReturnValue")
 public class LButton extends LControl {
 
+
 	//Event Load
 	private transient List<ButtonActionEventHandler> buttonActionHandlers = new ArrayList<>();
 
@@ -52,5 +53,10 @@ public class LButton extends LControl {
 
 	public void invokeButtonClick(UUID invoker) {
 		buttonActionHandlers.forEach(h -> h.handleEvent(this, invoker));
+	}
+
+	@Override
+	public boolean canReceiveUserInput() {
+		return true;
 	}
 }
