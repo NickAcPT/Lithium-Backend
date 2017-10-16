@@ -70,7 +70,7 @@ public class LOverlay extends LControl implements LContainer {
 	}
 
 	private void internalAddControl(LControl c) {
-
+		c.setParent(this);
 	}
 
 	private void internalRemoveControl(UUID c) {
