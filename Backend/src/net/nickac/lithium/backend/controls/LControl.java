@@ -34,7 +34,7 @@ import java.util.UUID;
  * This is the base control for Lithium.
  * All Lithium controls must extend this class
  */
-public class LControl implements ILithiumControl {
+public abstract class LControl implements ILithiumControl {
 
 	private CenterOptions centerOptions = CenterOptions.NONE;
 	private LContainer parent;
@@ -43,6 +43,8 @@ public class LControl implements ILithiumControl {
 	private Dimension size = Dimension.EMPTY;
 	private Point location = Point.EMPTY;
 	private transient Object tag;
+
+	public abstract boolean canReceiveUserInput();
 
 	public CenterOptions getCentered() {
 		return centerOptions;

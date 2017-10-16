@@ -44,6 +44,11 @@ public class LRadioButton extends LControl implements IToggleable {
 		setText(text);
 	}
 
+	@Override
+	public boolean canReceiveUserInput() {
+		return true;
+	}
+
 	public Color getForeColor() {
 		return foreColor;
 	}

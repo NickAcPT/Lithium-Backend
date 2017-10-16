@@ -58,5 +58,11 @@ public class LithiumConstants {
 	public static LithiumCloseWindowHandler onClose = null;
 	public static LithiumRuntimeControlHandler onControlRuntime = null;
 	//End Event Section
+
+
+	//Start Overlay Section
+	public static String LITHIUM_SHOW_OVERLAY = "LITHIUM|SHOW_OVERLAY|"; //OBJECT SERIALIZED WITH BASE64
+	public static String LITHIUM_REMOVE_OVERLAY = "LITHIUM|REMOVE_OVERLAY"; //
+	//End  Overlay Section
 	public static int CENTERED_CONSTANT = -2;
 }

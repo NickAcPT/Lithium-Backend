@@ -38,12 +38,16 @@ public class LProgressBar extends LControl {
 	private int progress = 0;
 	private int minValue = 0;
 	private int maxValue = 100;
-
 	public LProgressBar() {
 	}
 
 	public LProgressBar(int progress) {
 		this.progress = progress;
+	}
+
+	@Override
+	public boolean canReceiveUserInput() {
+		return false;
 	}
 
 	public int getProgress() {

@@ -24,72 +24,79 @@
 
 package net.nickac.lithium.backend.controls.impl;
 
-import net.nickac.lithium.backend.controls.IToggleable;
+import net.nickac.lithium.backend.controls.LContainer;
 import net.nickac.lithium.backend.controls.LControl;
-import net.nickac.lithium.backend.other.objects.Color;
+import net.nickac.lithium.backend.other.objects.Dimension;
+import net.nickac.lithium.backend.other.objects.Point;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by NickAc for Lithium!
  */
-public class LCheckBox extends LControl implements IToggleable {
-	private Color foreColor = Color.WHITE;
-	private Color outsideColor = Color.GRAY;
-	private Color insideColor = Color.BLACK;
-	private Color checkedColor = Color.GRAY;
-	private boolean checked;
-	public LCheckBox(String text) {
-		setText(text);
-	}
+public class LOverlay extends LControl implements LContainer {
+	private UUID viewer;
+	private Map<UUID, LControl> controls = new HashMap<>();
 
 	@Override
 	public boolean canReceiveUserInput() {
-		return true;
-	}
-
-	public Color getForeColor() {
-		return foreColor;
-	}
-
-	public void setForeColor(Color foreColor) {
-		this.foreColor = foreColor;
-	}
-
-	public Color getOutsideColor() {
-		return outsideColor;
-	}
-
-	public void setOutsideColor(Color outsideColor) {
-		this.outsideColor = outsideColor;
-	}
-
-	public Color getInsideColor() {
-		return insideColor;
-	}
-
-	public void setInsideColor(Color insideColor) {
-		this.insideColor = insideColor;
-	}
-
-	public Color getCheckedColor() {
-		return checkedColor;
-	}
-
-	public void setCheckedColor(Color checkedColor) {
-		this.checkedColor = checkedColor;
+		return false;
 	}
 
 	@Override
-	public boolean isChecked() {
-		return checked;
+	public UUID getViewer() {
+		return viewer;
+	}
+
+	public void setViewer(UUID viewer) {
+		this.viewer = viewer;
 	}
 
 	@Override
-	public void setChecked(boolean checked) {
-		setCheckedInternal(checked);
-		refresh();
+	public Collection<LControl> getControls() {
+		return controls.values();
 	}
 
-	public void setCheckedInternal(boolean checked) {
-		this.checked = checked;
+	@Override
+	public void addControl(LControl c) {
+		//We can't allow stuff that needs user input.
+		//It's an overlay, not a GUI!
+		if (c.canReceiveUserInput()) return;
+		controls.put(c.getUUID(), c);
+		internalAddControl(c);
+	}
+
+	private void internalAddControl(LControl c) {
+		c.setParent(this);
+	}
+
+	private void internalRemoveControl(UUID c) {
+
+	}
+
+	@Override
+	public void addControl(LControl c, int x, int y, int w, int h) {
+		c.setSize(new Dimension(w, h));
+		c.setLocation(new Point(x, y));
+		addControl(c);
+	}
+
+	@Override
+	public void addControl(LControl c, int w, int h) {
+		c.setSize(new Dimension(w, h));
+		addControl(c);
+	}
+
+	@Override
+	public void removeControl(UUID c) {
+		internalRemoveControl(c);
+	}
+
+	@Override
+	public void removeControl(LControl c) {
+		internalRemoveControl(c.getUUID());
 	}
 }

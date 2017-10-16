@@ -34,8 +34,14 @@ public class LTextLabel extends LControl {
 
 	private Color color = Color.WHITE;
 
+
 	public LTextLabel(String text) {
 		setText(text);
+	}
+
+	@Override
+	public boolean canReceiveUserInput() {
+		return false;
 	}
 
 	public Color getColor() {
