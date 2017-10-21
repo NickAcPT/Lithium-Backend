@@ -1,0 +1,9 @@
+apply plugin: 'java'
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.16.18'
+}
+
