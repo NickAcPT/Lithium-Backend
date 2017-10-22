@@ -7,3 +7,6 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.16.18'
 }
 
+sourceSets {
+    main.java.srcDirs = ['src']
+}
