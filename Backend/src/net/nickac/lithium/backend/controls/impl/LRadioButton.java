@@ -27,7 +27,12 @@ package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.IToggleable;
 import net.nickac.lithium.backend.controls.LControl;
+import net.nickac.lithium.backend.controls.impl.events.AbstractPropertyChangedHandler;
 import net.nickac.lithium.backend.other.objects.Color;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by NickAc for Lithium!
@@ -90,6 +95,17 @@ public class LRadioButton extends LControl implements IToggleable {
 		setCheckedInternal(checked);
 		refresh();
 	}
+
+	private transient List<AbstractPropertyChangedHandler<LRadioButton>> toggleHandlers = new ArrayList<>();
+	public LRadioButton onToggled(AbstractPropertyChangedHandler<LRadioButton> hl) {
+		toggleHandlers.add(hl);
+		return this;
+	}
+
+	public void invokeToggled(UUID invoker) {
+		toggleHandlers.forEach(h -> h.handleEvent(this, invoker));
+	}
+
 
 	public void setCheckedInternal(boolean checked) {
 		this.checked = checked;

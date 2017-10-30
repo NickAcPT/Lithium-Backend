@@ -32,6 +32,6 @@ import java.util.UUID;
 /**
  * Created by NickAc for Lithium!
  */
-public interface AbstractPropertyChanged<T extends LControl> {
+public interface AbstractPropertyChangedHandler<T extends LControl> {
 	void handleEvent(T sender, UUID invoker);
 }

@@ -32,6 +32,7 @@ import net.nickac.lithium.backend.other.objects.Point;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -41,7 +42,7 @@ public class LPanel extends LControl implements LContainer {
 	public LPanel() {
 		child = new HashMap<>();
 	}
-	private HashMap<UUID, LControl> child = new HashMap<>();
+	private Map<UUID, LControl> child = new HashMap<>();
 
 	@Override
 	public boolean canReceiveUserInput() {

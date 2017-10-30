@@ -42,7 +42,7 @@ public class LWindow extends LControl implements LContainer {
 		child = new HashMap<>();
 	}
 	private transient UUID viewer;
-	private HashMap<UUID, LControl> child = new HashMap<>();
+	private Map<UUID, LControl> child = new HashMap<>();
 	//Event Start
 	private transient List<WindowEventHandler> windowLoadHandlers = new ArrayList<>();
 	//Event Start
