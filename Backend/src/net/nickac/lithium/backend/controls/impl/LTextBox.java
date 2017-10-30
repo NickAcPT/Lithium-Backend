@@ -41,7 +41,7 @@ public class LTextBox extends LControl {
 	private boolean passwordField = false;
 	private String text = "";
 	private int maxStringLength = 23;
-	//Event Load
+	//Event Start
 	private transient List<TextBoxEventHandler> textChangedHandlers = new ArrayList<>();
 
 	@Override

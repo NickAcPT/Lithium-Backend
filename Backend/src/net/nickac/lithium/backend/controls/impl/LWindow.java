@@ -43,9 +43,9 @@ public class LWindow extends LControl implements LContainer {
 	}
 	private transient UUID viewer;
 	private HashMap<UUID, LControl> child = new HashMap<>();
-	//Event Load
+	//Event Start
 	private transient List<WindowEventHandler> windowLoadHandlers = new ArrayList<>();
-	//Event Load
+	//Event Start
 	private transient List<WindowEventHandler> windowCloseHandlers = new ArrayList<>();
 
 	@Override

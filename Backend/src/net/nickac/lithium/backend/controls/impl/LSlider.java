@@ -26,7 +26,12 @@
 package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.LControl;
+import net.nickac.lithium.backend.controls.impl.events.AbstractPropertyChanged;
 import net.nickac.lithium.backend.other.objects.Color;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by NickAc for Lithium!
@@ -35,14 +40,25 @@ public class LSlider extends LControl {
 
 	public LSlider() {
 	}
+
 	public LSlider(String text) {
 		setText(text);
 	}
+	private transient List<AbstractPropertyChanged<LSlider>> valueChangedHandlers = new ArrayList<>();
 	private Color borderColor = Color.WHITE;
 	private Color backgroundColor = Color.BLACK;
 	private long minimumValue = 0;
 	private long maximumValue = 100;
 	private long value = 0;
+
+	public LSlider onValueChanged(AbstractPropertyChanged<LSlider> hl) {
+		valueChangedHandlers.add(hl);
+		return this;
+	}
+
+	public void invokeValueChanged(UUID invoker) {
+		valueChangedHandlers.forEach(h -> h.handleEvent(this, invoker));
+	}
 
 	public long getMinimumValue() {
 		return minimumValue;
