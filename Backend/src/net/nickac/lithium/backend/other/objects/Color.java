@@ -32,23 +32,9 @@ import java.io.Serializable;
 @SuppressWarnings("ALL")
 public class Color implements Serializable {
 
-	public transient static Color RED = new Color(255, 0, 0);
-	public transient static Color GREEN = new Color(0, 255, 0);
-	public transient static Color DARK_GREEN = new Color(3, 85, 47);
-	public transient static Color BLUE = new Color(0, 0, 255);
-	public transient static Color WHITE = new Color(255, 255, 255);
-	public transient static Color GRAY = new Color(128, 128, 128);
-	public transient static Color BLACK = new Color(0, 0, 0);
-
-	private int alpha = 255;
-	private int red = 0;
-	private int green = 0;
-	private int blue = 0;
-
 	private Color(int red, int green, int blue) {
 		this(255, red, green, blue);
 	}
-
 	private Color(int alpha, int red, int green, int blue) {
 		this.alpha = Math.min(alpha, 255);
 		this.red = Math.min(red, 255);
@@ -56,6 +42,17 @@ public class Color implements Serializable {
 		this.blue = Math.min(blue, 255);
 
 	}
+	public transient static Color RED = new Color(255, 0, 0);
+	public transient static Color GREEN = new Color(0, 255, 0);
+	public transient static Color DARK_GREEN = new Color(3, 85, 47);
+	public transient static Color BLUE = new Color(0, 0, 255);
+	public transient static Color WHITE = new Color(255, 255, 255);
+	public transient static Color GRAY = new Color(128, 128, 128);
+	public transient static Color BLACK = new Color(0, 0, 0);
+	private int alpha = 255;
+	private int red = 0;
+	private int green = 0;
+	private int blue = 0;
 
 	public static Color fromRGB(int red, int green, int blue) {
 		return new Color(red, green, blue);

@@ -33,18 +33,16 @@ import net.nickac.lithium.backend.other.objects.Color;
  */
 public class LSlider extends LControl {
 
+	public LSlider() {
+	}
+	public LSlider(String text) {
+		setText(text);
+	}
 	private Color borderColor = Color.WHITE;
 	private Color backgroundColor = Color.BLACK;
 	private long minimumValue = 0;
 	private long maximumValue = 100;
 	private long value = 0;
-
-	public LSlider() {
-	}
-
-	public LSlider(String text) {
-		setText(text);
-	}
 
 	public long getMinimumValue() {
 		return minimumValue;

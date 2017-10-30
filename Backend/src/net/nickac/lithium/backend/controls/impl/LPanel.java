@@ -38,11 +38,10 @@ import java.util.UUID;
  * Created by NickAc for Lithium!
  */
 public class LPanel extends LControl implements LContainer {
-	private HashMap<UUID, LControl> child = new HashMap<>();
-
 	public LPanel() {
 		child = new HashMap<>();
 	}
+	private HashMap<UUID, LControl> child = new HashMap<>();
 
 	@Override
 	public boolean canReceiveUserInput() {

@@ -29,18 +29,16 @@ package net.nickac.lithium.backend.other.objects;
  * Created by NickAc for Lithium!
  */
 public class Rectangle {
-	private Point corner = Point.EMPTY;
-	private Dimension size = Dimension.EMPTY;
-
 	public Rectangle(Point corner, Dimension size) {
 		this.corner = corner;
 		this.size = size;
 	}
-
 	public Rectangle(int x, int y, int width, int height) {
 		this.corner = new Point(x, y);
 		this.size = new Dimension(width, height);
 	}
+	private Point corner = Point.EMPTY;
+	private Dimension size = Dimension.EMPTY;
 
 	public static Rectangle fromLTRB(int left, int top, int right, int bottom) {
 		return new Rectangle(left, top, right - left, bottom - top);

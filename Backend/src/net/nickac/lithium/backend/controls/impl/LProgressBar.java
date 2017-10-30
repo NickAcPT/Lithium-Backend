@@ -32,18 +32,17 @@ import net.nickac.lithium.backend.other.objects.Color;
  */
 public class LProgressBar extends LControl {
 
+	public LProgressBar() {
+	}
+	public LProgressBar(int progress) {
+		this.progress = progress;
+	}
 	private Color progressColor = Color.GREEN;
 	private Color borderColor = Color.GRAY;
 	private Color insideColor = Color.BLACK;
 	private int progress = 0;
 	private int minValue = 0;
 	private int maxValue = 100;
-	public LProgressBar() {
-	}
-
-	public LProgressBar(int progress) {
-		this.progress = progress;
-	}
 
 	@Override
 	public boolean canReceiveUserInput() {

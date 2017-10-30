@@ -32,12 +32,10 @@ import net.nickac.lithium.backend.other.objects.Color;
  */
 public class LTextLabel extends LControl {
 
-	private Color color = Color.WHITE;
-
-
 	public LTextLabel(String text) {
 		setText(text);
 	}
+	private Color color = Color.WHITE;
 
 	@Override
 	public boolean canReceiveUserInput() {

@@ -38,16 +38,15 @@ import java.util.*;
  */
 public class LWindow extends LControl implements LContainer {
 
+	public LWindow() {
+		child = new HashMap<>();
+	}
 	private transient UUID viewer;
 	private HashMap<UUID, LControl> child = new HashMap<>();
 	//Event Load
 	private transient List<WindowEventHandler> windowLoadHandlers = new ArrayList<>();
 	//Event Load
 	private transient List<WindowEventHandler> windowCloseHandlers = new ArrayList<>();
-
-	public LWindow() {
-		child = new HashMap<>();
-	}
 
 	@Override
 	public boolean canReceiveUserInput() {

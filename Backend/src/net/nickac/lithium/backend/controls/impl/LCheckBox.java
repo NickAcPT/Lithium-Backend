@@ -32,14 +32,14 @@ import net.nickac.lithium.backend.other.objects.Color;
  * Created by NickAc for Lithium!
  */
 public class LCheckBox extends LControl implements IToggleable {
+	public LCheckBox(String text) {
+		setText(text);
+	}
 	private Color foreColor = Color.WHITE;
 	private Color outsideColor = Color.GRAY;
 	private Color insideColor = Color.BLACK;
 	private Color checkedColor = Color.GRAY;
 	private boolean checked;
-	public LCheckBox(String text) {
-		setText(text);
-	}
 
 	@Override
 	public boolean canReceiveUserInput() {

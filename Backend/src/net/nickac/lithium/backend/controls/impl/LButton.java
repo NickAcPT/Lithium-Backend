@@ -37,13 +37,13 @@ import java.util.UUID;
 @SuppressWarnings("UnusedReturnValue")
 public class LButton extends LControl {
 
-
-	//Event Load
-	private transient List<ButtonActionEventHandler> buttonActionHandlers = new ArrayList<>();
-
 	public LButton(String text) {
 		setText(text);
 	}
+
+	//Event Load
+
+	private transient List<ButtonActionEventHandler> buttonActionHandlers = new ArrayList<>();
 
 	public LButton onButtonClick(ButtonActionEventHandler hl) {
 		buttonActionHandlers.add(hl);

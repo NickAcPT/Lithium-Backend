@@ -34,15 +34,14 @@ import net.nickac.lithium.backend.other.objects.Color;
  */
 public class LRadioButton extends LControl implements IToggleable {
 
+	public LRadioButton(String text) {
+		setText(text);
+	}
 	private Color foreColor = Color.WHITE;
 	private Color outsideColor = Color.GRAY;
 	private Color insideColor = Color.BLACK;
 	private Color checkedColor = Color.GRAY;
 	private boolean checked;
-
-	public LRadioButton(String text) {
-		setText(text);
-	}
 
 	@Override
 	public boolean canReceiveUserInput() {
