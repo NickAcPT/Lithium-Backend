@@ -47,9 +47,9 @@ public class LSlider extends LControl {
 	private transient List<AbstractPropertyChangedHandler<LSlider>> valueChangedHandlers = new ArrayList<>();
 	private Color borderColor = Color.WHITE;
 	private Color backgroundColor = Color.BLACK;
-	private long minimumValue = 0;
-	private long maximumValue = 100;
-	private long value = 0;
+	private int minimumValue = 0;
+	private int maximumValue = 100;
+	private int value = 0;
 
 	public LSlider onValueChanged(AbstractPropertyChangedHandler<LSlider> hl) {
 		valueChangedHandlers.add(hl);
@@ -60,27 +60,27 @@ public class LSlider extends LControl {
 		valueChangedHandlers.forEach(h -> h.handleEvent(this, invoker));
 	}
 
-	public long getMinimumValue() {
+	public int getMinValue() {
 		return minimumValue;
 	}
 
-	public void setMinimumValue(long minimumValue) {
+	public void setMinValue(int minimumValue) {
 		this.minimumValue = minimumValue;
 	}
 
-	public long getMaximumValue() {
+	public int getMaxValue() {
 		return maximumValue;
 	}
 
-	public void setMaximumValue(long maximumValue) {
+	public void setMaxValue(int maximumValue) {
 		this.maximumValue = maximumValue;
 	}
 
-	public long getValue() {
+	public int getValue() {
 		return value;
 	}
 
-	public void setValue(long value) {
+	public void setValue(int value) {
 		this.value = value;
 	}
 
