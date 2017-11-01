@@ -1,10 +1,19 @@
-apply plugin: 'java'
-repositories {
-    jcenter()
+plugins {
+    id 'net.ltgt.apt' version '0.10'
+    id 'java'
 }
 
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'java'
+
+
 dependencies {
-    compileOnly 'org.projectlombok:lombok:1.16.18'
+    compile 'org.projectlombok:lombok:1.16.18'
+
+    apt "org.projectlombok:lombok:1.16.18"
 }
 
 sourceSets {
