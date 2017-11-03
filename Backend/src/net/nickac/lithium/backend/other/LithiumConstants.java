@@ -33,22 +33,23 @@ import net.nickac.lithium.backend.other.serverhandlers.LithiumRuntimeControlHand
  */
 public class LithiumConstants {
 	//Start Window Section
-	public static String LITHIUM_WINDOW_OPEN = "LITHIUM|WINDOW_OPEN|"; //UUID
-	public static String LITHIUM_WINDOW_CLOSE = "LITHIUM|WINDOW_CLOSE|"; //UUID
-	public static String LITHIUM_RECEIVE_WINDOW = "LITHIUM|RECEIVE_WINDOW|"; //OBJECT SERIALIZED WITH BASE64
+	public static String LITHIUM_WINDOW_OPEN = "LITHIUM|WINDOW_OPEN|"; //UUID (Client->Server)
+	public static String LITHIUM_WINDOW_CLOSE = "LITHIUM|WINDOW_CLOSE|"; //UUID (Client->Server)
+	public static String LITHIUM_RECEIVE_WINDOW = "LITHIUM|RECEIVE_WINDOW|"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
 	//End Window Section
 
 	//Start Action Section
-	public static String LITHIUM_CONTROL_CHANGED = "LITHIUM|CONTROL_CHANGED|"; //OBJECT SERIALIZED WITH BASE64
-	public static String LITHIUM_BUTTON_ACTION = "LITHIUM|BUTTON_ACTION|"; //UUID
-	public static String LITHIUM_TEXTBOX_TEXT_CHANGED = "LITHIUM|TEXTBOX_CHANGED|"; //UUID|TEXT
-	public static String LITHIUM_CLOSE_WINDOW = "LITHIUM|CLOSE_WINDOW"; //
+	public static String LITHIUM_CONTROL_CHANGED = "LITHIUM|CONTROL_CHANGED|"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
+	public static String LITHIUM_BUTTON_ACTION = "LITHIUM|BUTTON_ACTION|"; //UUID (Client->Server)
+	public static String LITHIUM_TEXTBOX_TEXT_CHANGED = "LITHIUM|TEXTBOX_CHANGED|"; //UUID|TEXT (Client->Server)
+	public static String LITHIUM_SLIDER_VALUE_CHANGED = "LITHIUM|SLIDER_CHANGED|"; //UUID|VALUE (Client->Server)
+	public static String LITHIUM_CLOSE_WINDOW = "LITHIUM|CLOSE_WINDOW"; // (Server->Client)
 
-	public static String LITHIUM_TOGGLE_ACTION = "LITHIUM|TOGGLE_ACTION|"; //UUID
+	public static String LITHIUM_TOGGLE_ACTION = "LITHIUM|TOGGLE_ACTION|"; //UUID (Client->Server)
 
 
-	public static String LITHIUM_ADD_TO_CONTAINER = "LITHIUM|ADD_TO_CONTAINER|"; //CONTAINER UUID|OBJECT SERIALIZED WITH BASE64
-	public static String LITHIUM_REMOVE_FROM_CONTAINER = "LITHIUM|REMOVE_FROM_CONTAINER|"; //CONTAINER UUID|CONTROL UUID
+	public static String LITHIUM_ADD_TO_CONTAINER = "LITHIUM|ADD_TO_CONTAINER|"; //CONTAINER UUID|OBJECT SERIALIZED WITH BASE64 (Server->Client)
+	public static String LITHIUM_REMOVE_FROM_CONTAINER = "LITHIUM|REMOVE_FROM_CONTAINER|"; //CONTAINER UUID|CONTROL UUID (Server->Client)
 
 
 	//End Action Section
@@ -61,8 +62,8 @@ public class LithiumConstants {
 
 
 	//Start Overlay Section
-	public static String LITHIUM_SHOW_OVERLAY = "LITHIUM|SHOW_OVERLAY|"; //OBJECT SERIALIZED WITH BASE64
-	public static String LITHIUM_REMOVE_OVERLAY = "LITHIUM|REMOVE_OVERLAY"; //
+	public static String LITHIUM_SHOW_OVERLAY = "LITHIUM|SHOW_OVERLAY|"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
+	public static String LITHIUM_REMOVE_OVERLAY = "LITHIUM|REMOVE_OVERLAY"; // (Server->Client)
 	//End  Overlay Section
-	public static int CENTERED_CONSTANT = -2;
+	public static int CENTERED_CONSTANT = -2; //LEGACY
 }
