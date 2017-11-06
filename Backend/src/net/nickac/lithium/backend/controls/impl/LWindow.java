@@ -92,12 +92,15 @@ public class LWindow extends LControl implements LContainer {
 
 	@Override
 	public void addControl(LControl c) {
-		if (c.getParent() == null) c.setParent(this);
+		if (c.getParent() == null) {
+			c.setParent(this);
+		}
 		child.put(c.getUUID(), c);
 		refresh();
 		try {
-			if (LithiumConstants.onControlRuntime != null && getViewer() != null)
+			if (LithiumConstants.onControlRuntime != null && getViewer() != null) {
 				LithiumConstants.onControlRuntime.addControl(c, this, getViewer());
+			}
 		} catch (NullPointerException ex) {
 			//Sorry! I had to do this....
 		}
@@ -127,8 +130,9 @@ public class LWindow extends LControl implements LContainer {
 		refresh();
 		if (toRemove != null) {
 			try {
-				if (LithiumConstants.onControlRuntime != null && getViewer() != null)
+				if (LithiumConstants.onControlRuntime != null && getViewer() != null) {
 					LithiumConstants.onControlRuntime.removeControl(toRemove, this, getViewer());
+				}
 			} catch (NullPointerException ex) {
 				//Sorry! I had to do this....
 			}
@@ -141,7 +145,8 @@ public class LWindow extends LControl implements LContainer {
 	}
 
 	public void close() {
-		if (LithiumConstants.onClose != null && getViewer() != null)
+		if (LithiumConstants.onClose != null && getViewer() != null) {
 			LithiumConstants.onClose.closeWindow(this, getViewer());
+		}
 	}
 }

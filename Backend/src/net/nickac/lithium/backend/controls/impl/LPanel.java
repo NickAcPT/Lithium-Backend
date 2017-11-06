@@ -55,8 +55,9 @@ public class LPanel extends LControl implements LContainer {
 		child.put(c.getUUID(), c);
 		refresh();
 		try {
-			if (LithiumConstants.onControlRuntime != null && getViewer() != null)
+			if (LithiumConstants.onControlRuntime != null && getViewer() != null) {
 				LithiumConstants.onControlRuntime.addControl(c, this, getViewer());
+			}
 		} catch (NullPointerException ex) {
 			//Sorry! I had to do this....
 		}
@@ -108,8 +109,9 @@ public class LPanel extends LControl implements LContainer {
 		refresh();
 		if (toRemove != null) {
 			try {
-				if (LithiumConstants.onControlRuntime != null && getViewer() != null)
+				if (LithiumConstants.onControlRuntime != null && getViewer() != null) {
 					LithiumConstants.onControlRuntime.removeControl(toRemove, this, getViewer());
+				}
 			} catch (NullPointerException ex) {
 				//Sorry! I had to do this....
 			}

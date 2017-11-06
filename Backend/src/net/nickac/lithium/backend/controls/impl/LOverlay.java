@@ -64,7 +64,9 @@ public class LOverlay extends LControl implements LContainer {
 	public void addControl(LControl c) {
 		//We can't allow stuff that needs user input.
 		//It's an overlay, not a GUI!
-		if (c.canReceiveUserInput()) return;
+		if (c.canReceiveUserInput()) {
+			return;
+		}
 		controls.put(c.getUUID(), c);
 		internalAddControl(c);
 	}

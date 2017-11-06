@@ -67,8 +67,9 @@ public abstract class LControl implements ILithiumControl {
 
 	@Override
 	public UUID getUUID() {
-		if (uuid == null)
+		if (uuid == null) {
 			uuid = UUID.randomUUID();
+		}
 		return uuid;
 	}
 
@@ -134,8 +135,9 @@ public abstract class LControl implements ILithiumControl {
 	@Override
 	public void refresh() {
 		try {
-			if (LithiumConstants.onRefresh != null && parent != null && parent.getViewer() != null)
+			if (LithiumConstants.onRefresh != null && parent != null && parent.getViewer() != null) {
 				LithiumConstants.onRefresh.onRefresh(parent.getViewer(), this);
+			}
 
 		} catch (NullPointerException ex) {
 			//Sorry! I had to do this....
