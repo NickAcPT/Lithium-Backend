@@ -36,6 +36,24 @@ public class LImage extends LControl {
 	}
 
 	private String imageURL = "";
+	private boolean loaded;
+	private ImageDisplayOption displayOption;
+
+	public boolean isLoaded() {
+		return loaded;
+	}
+
+	public void setLoaded(boolean loaded) {
+		this.loaded = loaded;
+	}
+
+	public ImageDisplayOption getDisplayOption() {
+		return displayOption;
+	}
+
+	public void setDisplayOption(ImageDisplayOption displayOption) {
+		this.displayOption = displayOption;
+	}
 
 	public String getImageURL() {
 		return imageURL;
@@ -48,6 +66,13 @@ public class LImage extends LControl {
 	@Override
 	public boolean canReceiveUserInput() {
 		return false;
+	}
+
+	public enum ImageDisplayOption {
+		TILED, //FUTURE
+		AUTO_SIZE,
+		STRECH, //FUTURE
+		NONE //The same as auto_size
 	}
 
 }
