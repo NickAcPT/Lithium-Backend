@@ -50,6 +50,7 @@ public class LSlider extends LControl {
 		setMinValue(min);
 		setMaxValue(max);
 	}
+
 	private transient List<AbstractPropertyChangedHandler<LSlider>> valueChangedHandlers = new ArrayList<>();
 	private Color borderColor = Color.WHITE;
 	private Color backgroundColor = Color.BLACK;

@@ -40,11 +40,13 @@ public class LCheckBox extends LControl implements IToggleable {
 	public LCheckBox(String text) {
 		setText(text);
 	}
+
 	private Color foreColor = Color.WHITE;
 	private Color outsideColor = Color.GRAY;
 	private Color insideColor = Color.BLACK;
 	private Color checkedColor = Color.GRAY;
 	private boolean checked;
+	private transient List<AbstractPropertyChangedHandler<LCheckBox>> toggleHandlers = new ArrayList<>();
 
 	@Override
 	public boolean canReceiveUserInput() {
@@ -94,7 +96,6 @@ public class LCheckBox extends LControl implements IToggleable {
 		refresh();
 	}
 
-	private transient List<AbstractPropertyChangedHandler<LCheckBox>> toggleHandlers = new ArrayList<>();
 	public LCheckBox onToggled(AbstractPropertyChangedHandler<LCheckBox> hl) {
 		toggleHandlers.add(hl);
 		return this;

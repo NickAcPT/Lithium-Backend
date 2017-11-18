@@ -42,6 +42,7 @@ public class LPanel extends LControl implements LContainer {
 	public LPanel() {
 		child = new HashMap<>();
 	}
+
 	private Map<UUID, LControl> child = new HashMap<>();
 
 	@Override

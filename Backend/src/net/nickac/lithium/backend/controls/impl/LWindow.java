@@ -41,6 +41,7 @@ public class LWindow extends LControl implements LContainer {
 	public LWindow() {
 		child = new HashMap<>();
 	}
+
 	private transient UUID viewer;
 	private Map<UUID, LControl> child = new HashMap<>();
 	//Event Start

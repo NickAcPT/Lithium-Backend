@@ -35,6 +35,7 @@ public class LTextLabel extends LControl {
 	public LTextLabel(String text) {
 		setText(text);
 	}
+
 	private Color color = Color.WHITE;
 
 	@Override

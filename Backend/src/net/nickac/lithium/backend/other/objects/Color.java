@@ -35,6 +35,7 @@ public class Color implements Serializable {
 	private Color(int red, int green, int blue) {
 		this(255, red, green, blue);
 	}
+
 	private Color(int alpha, int red, int green, int blue) {
 		this.alpha = Math.min(alpha, 255);
 		this.red = Math.min(red, 255);
@@ -42,6 +43,7 @@ public class Color implements Serializable {
 		this.blue = Math.min(blue, 255);
 
 	}
+
 	public transient static Color RED = new Color(255, 0, 0);
 	public transient static Color GREEN = new Color(0, 255, 0);
 	public transient static Color DARK_GREEN = new Color(3, 85, 47);

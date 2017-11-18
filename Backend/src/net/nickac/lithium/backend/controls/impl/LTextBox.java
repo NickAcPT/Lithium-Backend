@@ -38,6 +38,7 @@ public class LTextBox extends LControl {
 
 	public LTextBox() {
 	}
+
 	private boolean passwordField = false;
 	private String text = "";
 	private int maxStringLength = 23;

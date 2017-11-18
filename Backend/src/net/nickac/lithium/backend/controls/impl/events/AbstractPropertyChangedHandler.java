@@ -25,7 +25,6 @@
 package net.nickac.lithium.backend.controls.impl.events;
 
 import net.nickac.lithium.backend.controls.LControl;
-import net.nickac.lithium.backend.controls.impl.LButton;
 
 import java.util.UUID;
 

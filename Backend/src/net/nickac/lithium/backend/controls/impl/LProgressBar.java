@@ -34,9 +34,11 @@ public class LProgressBar extends LControl {
 
 	public LProgressBar() {
 	}
+
 	public LProgressBar(int progress) {
 		this.progress = progress;
 	}
+
 	private Color progressColor = Color.GREEN;
 	private Color borderColor = Color.GRAY;
 	private Color insideColor = Color.BLACK;

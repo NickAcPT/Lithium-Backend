@@ -42,11 +42,13 @@ public class LRadioButton extends LControl implements IToggleable {
 	public LRadioButton(String text) {
 		setText(text);
 	}
+
 	private Color foreColor = Color.WHITE;
 	private Color outsideColor = Color.GRAY;
 	private Color insideColor = Color.BLACK;
 	private Color checkedColor = Color.GRAY;
 	private boolean checked;
+	private transient List<AbstractPropertyChangedHandler<LRadioButton>> toggleHandlers = new ArrayList<>();
 
 	@Override
 	public boolean canReceiveUserInput() {
@@ -96,7 +98,6 @@ public class LRadioButton extends LControl implements IToggleable {
 		refresh();
 	}
 
-	private transient List<AbstractPropertyChangedHandler<LRadioButton>> toggleHandlers = new ArrayList<>();
 	public LRadioButton onToggled(AbstractPropertyChangedHandler<LRadioButton> hl) {
 		toggleHandlers.add(hl);
 		return this;

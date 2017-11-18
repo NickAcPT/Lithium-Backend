@@ -33,10 +33,12 @@ public class Rectangle {
 		this.corner = corner;
 		this.size = size;
 	}
+
 	public Rectangle(int x, int y, int width, int height) {
 		this.corner = new Point(x, y);
 		this.size = new Dimension(width, height);
 	}
+
 	private Point corner = Point.EMPTY;
 	private Dimension size = Dimension.EMPTY;
 
