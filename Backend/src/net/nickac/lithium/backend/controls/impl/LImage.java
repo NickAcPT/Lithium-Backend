@@ -36,15 +36,14 @@ public class LImage extends LControl {
 	}
 
 	private String imageURL = "";
-	private boolean loaded;
-	private ImageDisplayOption displayOption;
+	private ImageDisplayOption displayOption = ImageDisplayOption.STRECH;
 
-	public boolean isLoaded() {
-		return loaded;
+	public String getImageURL() {
+		return imageURL;
 	}
 
-	public void setLoaded(boolean loaded) {
-		this.loaded = loaded;
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
 	}
 
 	public ImageDisplayOption getDisplayOption() {
@@ -53,14 +52,6 @@ public class LImage extends LControl {
 
 	public void setDisplayOption(ImageDisplayOption displayOption) {
 		this.displayOption = displayOption;
-	}
-
-	public String getImageURL() {
-		return imageURL;
-	}
-
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
 	}
 
 	@Override
