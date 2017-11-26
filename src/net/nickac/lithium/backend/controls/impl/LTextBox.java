@@ -25,7 +25,7 @@
 package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.LControl;
-import net.nickac.lithium.backend.controls.impl.events.TextBoxEventHandler;
+import net.nickac.lithium.backend.controls.impl.events.PropertyChangedHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,14 +43,14 @@ public class LTextBox extends LControl {
 	private String text = "";
 	private int maxStringLength = 23;
 	//Event Start
-	private transient List<TextBoxEventHandler> textChangedHandlers = new ArrayList<>();
+	private transient List<PropertyChangedHandler<LTextBox>> textChangedHandlers = new ArrayList<>();
 
 	@Override
 	public boolean canReceiveUserInput() {
 		return true;
 	}
 
-	public LTextBox onTextChanged(TextBoxEventHandler hl) {
+	public LTextBox onTextChanged(PropertyChangedHandler<LTextBox> hl) {
 		textChangedHandlers.add(hl);
 		return this;
 	}

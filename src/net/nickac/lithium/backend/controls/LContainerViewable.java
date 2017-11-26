@@ -22,40 +22,16 @@
  * SOFTWARE.
  */
 
-package net.nickac.lithium.backend.controls.impl;
+package net.nickac.lithium.backend.controls;
 
-import net.nickac.lithium.backend.controls.LControl;
-import net.nickac.lithium.backend.controls.impl.events.ButtonActionEventHandler;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by NickAc for Lithium!
- */
-@SuppressWarnings("UnusedReturnValue")
-public class LButton extends LControl {
+public interface LContainerViewable extends LContainer {
 
-	public LButton(String text) {
-		setText(text);
-	}
 
-	//Event Start
-	private transient List<ButtonActionEventHandler> buttonActionHandlers = new ArrayList<>();
-
-	public LButton onButtonClick(ButtonActionEventHandler hl) {
-		buttonActionHandlers.add(hl);
-		return this;
-	}
-
-	public void invokeButtonClick(UUID invoker) {
-		buttonActionHandlers.forEach(h -> h.handleEvent(this, invoker));
-	}
-	//End Event
-
-	@Override
-	public boolean canReceiveUserInput() {
-		return true;
-	}
+    /**
+     * Sets the viewer of this container
+     * @param viewer The viewer of this container
+     */
+    void setViewer(UUID viewer);
 }

@@ -20,14 +20,13 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- *
  */
 
 package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.IToggleable;
 import net.nickac.lithium.backend.controls.LControl;
-import net.nickac.lithium.backend.controls.impl.events.AbstractPropertyChangedHandler;
+import net.nickac.lithium.backend.controls.impl.events.PropertyChangedHandler;
 import net.nickac.lithium.backend.other.objects.Color;
 
 import java.util.ArrayList;
@@ -37,9 +36,8 @@ import java.util.UUID;
 /**
  * Created by NickAc for Lithium!
  */
-public class LRadioButton extends LControl implements IToggleable {
-
-	public LRadioButton(String text) {
+public class LCheckBox extends LControl implements IToggleable {
+	public LCheckBox(String text) {
 		setText(text);
 	}
 
@@ -48,7 +46,7 @@ public class LRadioButton extends LControl implements IToggleable {
 	private Color insideColor = Color.BLACK;
 	private Color checkedColor = Color.GRAY;
 	private boolean checked;
-	private transient List<AbstractPropertyChangedHandler<LRadioButton>> toggleHandlers = new ArrayList<>();
+	private transient List<PropertyChangedHandler<LCheckBox>> toggleHandlers = new ArrayList<>();
 
 	@Override
 	public boolean canReceiveUserInput() {
@@ -98,7 +96,7 @@ public class LRadioButton extends LControl implements IToggleable {
 		refresh();
 	}
 
-	public LRadioButton onToggled(AbstractPropertyChangedHandler<LRadioButton> hl) {
+	public LCheckBox onToggled(PropertyChangedHandler<LCheckBox> hl) {
 		toggleHandlers.add(hl);
 		return this;
 	}

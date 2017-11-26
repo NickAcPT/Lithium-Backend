@@ -24,13 +24,13 @@
 
 package net.nickac.lithium.backend.controls.impl.events;
 
-import net.nickac.lithium.backend.controls.impl.LButton;
+import net.nickac.lithium.backend.controls.LControl;
 
 import java.util.UUID;
 
 /**
  * Created by NickAc for Lithium!
  */
-public interface ButtonActionEventHandler {
-	void handleEvent(LButton sender, UUID invoker);
+public interface PropertyChangedHandler<T extends LControl> {
+	void handleEvent(T sender, UUID invoker);
 }

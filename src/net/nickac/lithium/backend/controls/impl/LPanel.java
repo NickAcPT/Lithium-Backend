@@ -26,76 +26,33 @@ package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.LContainer;
 import net.nickac.lithium.backend.controls.LControl;
-import net.nickac.lithium.backend.controls.impl.events.WindowEventHandler;
 import net.nickac.lithium.backend.other.LithiumConstants;
 import net.nickac.lithium.backend.other.objects.Dimension;
 import net.nickac.lithium.backend.other.objects.Point;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by NickAc for Lithium!
  */
-public class LWindow extends LControl implements LContainer {
-
-	public LWindow() {
+public class LPanel extends LControl implements LContainer {
+	public LPanel() {
 		child = new HashMap<>();
 	}
 
-	private transient UUID viewer;
-	private Map<UUID, LControl> child = new HashMap<>();
-	//Event Start
-	private transient List<WindowEventHandler> windowLoadHandlers = new ArrayList<>();
-	//Event Start
-	private transient List<WindowEventHandler> windowCloseHandlers = new ArrayList<>();
+	private Map<UUID, LControl> child;
 
 	@Override
 	public boolean canReceiveUserInput() {
-		return true;
-	}
-
-	public LWindow onWindowLoad(WindowEventHandler hl) {
-		windowLoadHandlers.add(hl);
-		return this;
-	}
-
-	/*
-	In order to dispose a window, we just close it.
-	The mod and the plugin will do the rest.
-	*/
-	@Override
-	public void dispose() {
-		close();
-	}
-	//End Event
-
-	public void invokeWindowLoad(UUID invoker) {
-		windowLoadHandlers.forEach(h -> h.handleEvent(this, invoker));
-	}
-
-	public LWindow onWindowUnload(WindowEventHandler hl) {
-		windowCloseHandlers.add(hl);
-		return this;
-	}
-
-	public void invokeWindowClose(UUID invoker) {
-		windowCloseHandlers.forEach(h -> h.handleEvent(this, invoker));
-	}
-	//End Event
-
-	public UUID getViewer() {
-		return viewer;
-	}
-
-	public void setViewer(UUID viewer) {
-		this.viewer = viewer;
+		return false;
 	}
 
 	@Override
 	public void addControl(LControl c) {
-		if (c.getParent() == null) {
-			c.setParent(this);
-		}
+		c.setParent(this);
 		child.put(c.getUUID(), c);
 		refresh();
 		try {
@@ -117,6 +74,28 @@ public class LWindow extends LControl implements LContainer {
 	public void addControl(LControl c, int w, int h) {
 		c.setSize(new Dimension(w, h));
 		addControl(c);
+	}
+
+	public int getTotalWidth() {
+		int width = 0;
+		for (LControl control : child.values()) {
+			width = Math.max(width, control.getRight());
+		}
+		return width;
+	}
+
+	public int getTotalHeight() {
+		int height = 0;
+		for (LControl control : child.values()) {
+			height = Math.max(height, control.getBottom());
+		}
+		return height;
+	}
+
+
+	@Override
+	public UUID getViewer() {
+		return getParent().getViewer();
 	}
 
 	public Collection<LControl> getControls() {
@@ -143,11 +122,5 @@ public class LWindow extends LControl implements LContainer {
 	@Override
 	public void removeControl(LControl c) {
 		removeControl(c.getUUID());
-	}
-
-	public void close() {
-		if (LithiumConstants.onClose != null && getViewer() != null) {
-			LithiumConstants.onClose.closeWindow(this, getViewer());
-		}
 	}
 }

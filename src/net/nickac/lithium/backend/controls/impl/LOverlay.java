@@ -25,6 +25,7 @@
 package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.LContainer;
+import net.nickac.lithium.backend.controls.LContainerViewable;
 import net.nickac.lithium.backend.controls.LControl;
 import net.nickac.lithium.backend.other.objects.Dimension;
 import net.nickac.lithium.backend.other.objects.Point;
@@ -37,7 +38,7 @@ import java.util.UUID;
 /**
  * Created by NickAc for Lithium!
  */
-public class LOverlay extends LControl implements LContainer {
+public class LOverlay extends LControl implements LContainerViewable {
 	private UUID viewer;
 	private Map<UUID, LControl> controls = new HashMap<>();
 

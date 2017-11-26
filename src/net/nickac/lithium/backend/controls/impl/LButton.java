@@ -22,15 +22,39 @@
  * SOFTWARE.
  */
 
-package net.nickac.lithium.backend.controls.impl.events;
+package net.nickac.lithium.backend.controls.impl;
 
-import net.nickac.lithium.backend.controls.impl.LTextBox;
+import net.nickac.lithium.backend.controls.LControl;
+import net.nickac.lithium.backend.controls.impl.events.PropertyChangedHandler;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
  * Created by NickAc for Lithium!
  */
-public interface TextBoxEventHandler {
-	void handleEvent(LTextBox sender, UUID invoker);
+public class LButton extends LControl {
+
+	public LButton(String text) {
+		setText(text);
+	}
+
+	//Event Start
+	private transient List<PropertyChangedHandler<LButton>> buttonActionHandlers = new ArrayList<>();
+
+	public LButton onButtonClick(PropertyChangedHandler<LButton> hl) {
+		buttonActionHandlers.add(hl);
+		return this;
+	}
+
+	public void invokeButtonClick(UUID invoker) {
+		buttonActionHandlers.forEach(h -> h.handleEvent(this, invoker));
+	}
+	//End Event
+
+	@Override
+	public boolean canReceiveUserInput() {
+		return true;
+	}
 }

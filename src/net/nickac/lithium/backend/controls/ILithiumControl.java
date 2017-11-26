@@ -33,8 +33,9 @@ import java.util.UUID;
 /**
  * Created by NickAc for Lithium!
  */
-@SuppressWarnings("ALL")
 public interface ILithiumControl extends Serializable {
+
+
 	/**
 	 * Get the parent of this control
 	 *

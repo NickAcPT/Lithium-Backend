@@ -30,13 +30,14 @@ import java.util.UUID;
 /**
  * Represents a Lithium Container.
  */
-public interface LContainer {
+public interface LContainer extends ILithiumControl {
 	/**
 	 * Gets the viewer of this container<br>.
 	 *
 	 * @return The viewer of this container if there is a viewer, null otherwise.
 	 */
 	UUID getViewer();
+
 
 	/**
 	 * Gets the controls of this container.

@@ -26,7 +26,7 @@
 package net.nickac.lithium.backend.controls.impl;
 
 import net.nickac.lithium.backend.controls.LControl;
-import net.nickac.lithium.backend.controls.impl.events.AbstractPropertyChangedHandler;
+import net.nickac.lithium.backend.controls.impl.events.PropertyChangedHandler;
 import net.nickac.lithium.backend.other.objects.Color;
 
 import java.util.ArrayList;
@@ -51,7 +51,7 @@ public class LSlider extends LControl {
 		setMaxValue(max);
 	}
 
-	private transient List<AbstractPropertyChangedHandler<LSlider>> valueChangedHandlers = new ArrayList<>();
+	private transient List<PropertyChangedHandler<LSlider>> valueChangedHandlers = new ArrayList<>();
 	private Color borderColor = Color.WHITE;
 	private Color backgroundColor = Color.BLACK;
 	private SliderType sliderType = SliderType.HORIZONTAL;
@@ -67,7 +67,7 @@ public class LSlider extends LControl {
 		this.sliderType = sliderType;
 	}
 
-	public LSlider onValueChanged(AbstractPropertyChangedHandler<LSlider> hl) {
+	public LSlider onValueChanged(PropertyChangedHandler<LSlider> hl) {
 		valueChangedHandlers.add(hl);
 		return this;
 	}
