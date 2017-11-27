@@ -33,23 +33,25 @@ import net.nickac.lithium.backend.other.serverhandlers.LithiumRuntimeControlHand
  */
 public class LithiumConstants {
 
+    public final static String VERSION="1.3";
+
     public static class TO_SERVER {
-        public static String WINDOW_OPEN = "WINDOW_OPEN"; //UUID (Client->Server)
-        public static String WINDOW_CLOSE = "WINDOW_CLOSE"; //UUID (Client->Server)
-        public static String BUTTON_ACTION = "BUTTON_ACTION"; //UUID (Client->Server)
-        public static String TEXTBOX_TEXT_CHANGED = "TEXTBOX_CHANGED"; //UUID|TEXT (Client->Server)
-        public static String SLIDER_VALUE_CHANGED = "SLIDER_CHANGED"; //UUID|VALUE (Client->Server)
-        public static String TOGGLE_ACTION = "TOGGLE_ACTION"; //UUID (Client->Server)
-        public static String CONNECTION_ESTABLISHED = "CONNECTION_ESTABLISHED"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
+        public final static String WINDOW_OPEN = "WINDOW_OPEN"; //UUID (Client->Server)
+        public final static String WINDOW_CLOSE = "WINDOW_CLOSE"; //UUID (Client->Server)
+        public final static String BUTTON_ACTION = "BUTTON_ACTION"; //UUID (Client->Server)
+        public final static String TEXTBOX_TEXT_CHANGED = "TEXTBOX_CHANGED"; //UUID|TEXT (Client->Server)
+        public final static String SLIDER_VALUE_CHANGED = "SLIDER_CHANGED"; //UUID|VALUE (Client->Server)
+        public final static String TOGGLE_ACTION = "TOGGLE_ACTION"; //UUID (Client->Server)
+        public final static String CONNECTION_ESTABLISHED = "CONNECTION_ESTABLISHED"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
     }
     public static class TO_CLIENT {
-        public static String RECEIVE_WINDOW = "RECEIVE_WINDOW"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
-        public static String CONTROL_CHANGED = "CONTROL_CHANGED"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
-        public static String CLOSE_WINDOW = "CLOSE_WINDOW"; // (Server->Client)
-        public static String ADD_TO_CONTAINER = "ADD_TO_CONTAINER"; //CONTAINER UUID|OBJECT SERIALIZED WITH BASE64 (Server->Client)
-        public static String REMOVE_FROM_CONTAINER = "REMOVE_FROM_CONTAINER"; //CONTAINER UUID|CONTROL UUID (Server->Client)
-        public static String SHOW_OVERLAY = "SHOW_OVERLAY"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
-        public static String REMOVE_OVERLAY = "REMOVE_OVERLAY"; // (Server->Client)
+        public final static String RECEIVE_WINDOW = "RECEIVE_WINDOW"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
+        public final static String CONTROL_CHANGED = "CONTROL_CHANGED"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
+        public final static String CLOSE_WINDOW = "CLOSE_WINDOW"; // (Server->Client)
+        public final static String ADD_TO_CONTAINER = "ADD_TO_CONTAINER"; //CONTAINER UUID|OBJECT SERIALIZED WITH BASE64 (Server->Client)
+        public final static String REMOVE_FROM_CONTAINER = "REMOVE_FROM_CONTAINER"; //CONTAINER UUID|CONTROL UUID (Server->Client)
+        public final static String SHOW_OVERLAY = "SHOW_OVERLAY"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
+        public final static String REMOVE_OVERLAY = "REMOVE_OVERLAY"; // (Server->Client)
 
     }
 
@@ -59,7 +61,7 @@ public class LithiumConstants {
     public static LithiumRuntimeControlHandler onControlRuntime = null;
 
     //End  Overlay Section
-    public static int CENTERED_CONSTANT = -2; //LEGACY
+    public final static int CENTERED_CONSTANT = -2; //LEGACY
 
 
 
