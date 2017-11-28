@@ -24,7 +24,6 @@
 
 package net.nickac.lithium.backend.controls.impl;
 
-import net.nickac.lithium.backend.controls.LContainer;
 import net.nickac.lithium.backend.controls.LContainerViewable;
 import net.nickac.lithium.backend.controls.LControl;
 import net.nickac.lithium.backend.other.objects.Dimension;
