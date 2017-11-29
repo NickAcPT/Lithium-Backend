@@ -36,137 +36,130 @@ import java.util.UUID;
  */
 public abstract class LControl implements ILithiumControl {
 
-	private CenterOptions centerOptions = CenterOptions.NONE;
-	private LContainer parent;
-	private UUID uuid;
-	private String text;
-	private Dimension size = Dimension.EMPTY;
-	private Point location = Point.EMPTY;
-	private transient Object tag;
+    private CenterOptions centerOptions = CenterOptions.NONE;
+    private LContainer parent;
+    private UUID uuid;
+    private String text;
+    private Dimension size = Dimension.EMPTY;
+    private Point location = Point.EMPTY;
+    private transient Object tag;
 
-	public abstract boolean canReceiveUserInput();
+    public abstract boolean canReceiveUserInput();
 
-	public CenterOptions getCentered() {
-		return centerOptions;
-	}
+    public CenterOptions getCentered() {
+        return centerOptions;
+    }
 
-	public LControl setCentered(CenterOptions options) {
-		centerOptions = options;
-		return this;
-	}
+    public LControl setCentered(CenterOptions options) {
+        centerOptions = options;
+        return this;
+    }
 
-	@Override
-	public LContainer getParent() {
-		return parent;
-	}
+    @Override
+    public LContainer getParent() {
+        return parent;
+    }
 
-	@Override
-	public void setParent(LContainer parent) {
-		this.parent = parent;
-	}
+    @Override
+    public void setParent(LContainer parent) {
+        this.parent = parent;
+    }
 
-	@Override
-	public UUID getUUID() {
-		if (uuid == null) {
-			uuid = UUID.randomUUID();
-		}
-		return uuid;
-	}
+    @Override
+    public UUID getUUID() {
+        if (uuid == null) {
+            uuid = UUID.randomUUID();
+        }
+        return uuid;
+    }
 
-	@Override
-	public String getText() {
-		return text != null ? text : "";
-	}
+    @Override
+    public String getText() {
+        return text != null ? text : "";
+    }
 
-	@Override
-	public LControl setText(String text) {
-		this.text = text;
-		refresh();
-		return this;
-	}
+    @Override
+    public LControl setText(String text) {
+        this.text = text;
+        refresh();
+        return this;
+    }
 
-	@Override
-	public Dimension getSize() {
-		return size != null ? size : Dimension.EMPTY;
-	}
+    @Override
+    public Dimension getSize() {
+        return size != null ? size : Dimension.EMPTY;
+    }
 
-	@Override
-	public LControl setSize(Dimension size) {
-		this.size = size;
-		refresh();
-		return this;
-	}
+    @Override
+    public LControl setSize(Dimension size) {
+        this.size = size;
+        refresh();
+        return this;
+    }
 
-	@Override
-	public Point getLocation() {
-		return location != null ? location : Point.EMPTY;
-	}
+    @Override
+    public Point getLocation() {
+        return location != null ? location : Point.EMPTY;
+    }
 
-	@Override
-	public ILithiumControl setLocation(Point loc) {
-		location = loc;
-		refresh();
-		return this;
-	}
+    @Override
+    public ILithiumControl setLocation(Point loc) {
+        location = loc;
+        refresh();
+        return this;
+    }
 
-	@Override
-	public int getLeft() {
-		int parentOffset = getParent() != null && getParent() instanceof LControl ? ((LControl) getParent()).getLeft() : 0;
+    @Override
+    public int getLeft() {
+        int parentOffset = getParent() != null && getParent() instanceof LControl ? ((LControl) getParent()).getLeft() : 0;
 
-		return parentOffset + location.getX();
-	}
+        return parentOffset + location.getX();
+    }
 
-	@Override
-	public int getRight() {
-		return getLeft() + size.getWidth();
-	}
+    @Override
+    public int getRight() {
+        return getLeft() + size.getWidth();
+    }
 
-	@Override
-	public int getTop() {
-		int parentOffset = getParent() != null && getParent() instanceof LControl ? ((LControl) getParent()).getTop() : 0;
-		return parentOffset + location.getY();
-	}
+    @Override
+    public int getTop() {
+        int parentOffset = getParent() != null && getParent() instanceof LControl ? ((LControl) getParent()).getTop() : 0;
+        return parentOffset + location.getY();
+    }
 
-	@Override
-	public int getBottom() {
-		return getTop() + size.getHeight();
-	}
+    @Override
+    public int getBottom() {
+        return getTop() + size.getHeight();
+    }
 
-	@Override
-	public void refresh() {
-		try {
-			if (LithiumConstants.onRefresh != null && parent != null && parent.getViewer() != null) {
-				LithiumConstants.onRefresh.onRefresh(parent.getViewer(), this);
-			}
+    @Override
+    public void refresh() {
+        try {
+            if (LithiumConstants.onRefresh != null && parent != null && parent.getViewer() != null) {
+                LithiumConstants.onRefresh.onRefresh(parent.getViewer(), this);
+            }
 
-		} catch (NullPointerException ex) {
-			//Sorry! I had to do this....
-		}
-	}
+        } catch (NullPointerException ex) {
+            //Sorry! I had to do this....
+        }
+    }
 
-	@Override
-	public void dispose() {
-		//TODO: Make global Implementation to handle this
-		if (getParent() != null) {
-			getParent().removeControl(this);
-		}
-	}
+    @Override
+    public void dispose() {
+        //TODO: Make global Implementation to handle this
+        if (getParent() != null) {
+            getParent().removeControl(this);
+        }
+    }
 
-	@Override
-	public Object getTag() {
-		return tag;
-	}
+    @Override
+    public Object getTag() {
+        return tag;
+    }
 
-	@Override
-	public LControl setTag(Object tag) {
-		this.tag = tag;
-		return this;
-	}
-
-	public enum CenterOptions {
-		NONE,
-		HORIZONTAL,
-		VERTICAL,
-		HORIZONTAL_VERTICAL
-	}
+    @Override
+    public LControl setTag(Object tag) {
+        this.tag = tag;
+        return this;
+    }
 }
