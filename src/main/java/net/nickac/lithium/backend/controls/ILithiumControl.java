@@ -36,118 +36,118 @@ import java.util.UUID;
 public interface ILithiumControl extends Serializable {
 
 
-	/**
-	 * Get the parent of this control
-	 *
-	 * @return The parent of this control.
-	 */
-	LContainer getParent();
+    /**
+     * Get the parent of this control
+     *
+     * @return The parent of this control.
+     */
+    LContainer getParent();
 
-	/**
-	 * Set the parent of this control
-	 *
-	 * @param parent The new parent of this control.
-	 */
-	void setParent(LContainer parent);
+    /**
+     * Set the parent of this control
+     *
+     * @param parent The new parent of this control.
+     */
+    void setParent(LContainer parent);
 
-	/**
-	 * The Unique ID associated with this control
-	 *
-	 * @return The UUID of this control.
-	 */
-	UUID getUUID();
+    /**
+     * The Unique ID associated with this control
+     *
+     * @return The UUID of this control.
+     */
+    UUID getUUID();
 
-	/**
-	 * Gets the text of this control. <br>
-	 * Not all controls contain text.
-	 *
-	 * @return The text of this control.
-	 */
-	String getText();
+    /**
+     * Gets the text of this control. <br>
+     * Not all controls contain text.
+     *
+     * @return The text of this control.
+     */
+    String getText();
 
-	/**
-	 * Sets the text of this control
-	 *
-	 * @param text The new text of the control
-	 * @return Itself, in order to allow chained calls.
-	 */
-	ILithiumControl setText(String text);
+    /**
+     * Sets the text of this control
+     *
+     * @param text The new text of the control
+     * @return Itself, in order to allow chained calls.
+     */
+    ILithiumControl setText(String text);
 
-	/**
-	 * Gets the size of the control. <br>
-	 * Some controls may have fixed size on the client, so this may not be accurate.
-	 *
-	 * @return The size of this control.
-	 */
-	Dimension getSize();
+    /**
+     * Gets the size of the control. <br>
+     * Some controls may have fixed size on the client, so this may not be accurate.
+     *
+     * @return The size of this control.
+     */
+    Dimension getSize();
 
-	/**
-	 * Sets the size of this control
-	 *
-	 * @param size The new size of this control
-	 * @return Itself, in order to allow chained calls.
-	 */
-	LControl setSize(Dimension size);
+    /**
+     * Sets the size of this control
+     *
+     * @param size The new size of this control
+     * @return Itself, in order to allow chained calls.
+     */
+    LControl setSize(Dimension size);
 
-	/**
-	 * Gets the location of this control
-	 *
-	 * @return The location of this control
-	 */
-	Point getLocation();
+    /**
+     * Gets the location of this control
+     *
+     * @return The location of this control
+     */
+    Point getLocation();
 
-	/**
-	 * Ses the location of this control
-	 *
-	 * @param loc The new location of this control
-	 * @return Itself, in
-	 */
-	ILithiumControl setLocation(Point loc);
+    /**
+     * Ses the location of this control
+     *
+     * @param loc The new location of this control
+     * @return Itself, in
+     */
+    ILithiumControl setLocation(Point loc);
 
-	/**
-	 * Get the location of the left side of this control
-	 *
-	 * @return The location of the left side of the control
-	 */
-	int getLeft();
+    /**
+     * Get the location of the left side of this control
+     *
+     * @return The location of the left side of the control
+     */
+    int getLeft();
 
-	/**
-	 * Get the location of the right side of this control
-	 *
-	 * @return The location of the right side of the control
-	 */
-	int getRight();
+    /**
+     * Get the location of the right side of this control
+     *
+     * @return The location of the right side of the control
+     */
+    int getRight();
 
-	/**
-	 * Get the location of the top of this control
-	 *
-	 * @return The location of the top of the control
-	 */
-	int getTop();
+    /**
+     * Get the location of the top of this control
+     *
+     * @return The location of the top of the control
+     */
+    int getTop();
 
-	/**
-	 * Get the location of the bottom of this control
-	 *
-	 * @return The location of the bottom side of the control
-	 */
-	int getBottom();
+    /**
+     * Get the location of the bottom of this control
+     *
+     * @return The location of the bottom side of the control
+     */
+    int getBottom();
 
 
-	/**
-	 * Refresh this control.<br>
-	 * The control will be resent to the client and will be updated.
-	 */
-	void refresh();
+    /**
+     * Refresh this control.<br>
+     * The control will be resent to the client and will be updated.
+     */
+    void refresh();
 
-	/**
-	 * Dispose this control.<br>
-	 * This control will be removed from the parent and from the client.
-	 */
-	void dispose();
+    /**
+     * Dispose this control.<br>
+     * This control will be removed from the parent and from the client.
+     */
+    void dispose();
 
-	Object getTag();
+    Object getTag();
 
-	LControl setTag(Object tag);
+    LControl setTag(Object tag);
 
 
 }

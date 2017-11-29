@@ -32,38 +32,38 @@ import java.util.Base64;
  */
 public class SerializationUtils {
 
-	/**
-	 * Serializes an object to a base64 encoded string
-	 *
-	 * @param object The object to serialize
-	 * @return a base64 encoded string that contains the object
-	 */
-	public static String objectToString(Serializable object) {
-		String encoded = null;
+    /**
+     * Serializes an object to a base64 encoded string
+     *
+     * @param object The object to serialize
+     * @return a base64 encoded string that contains the object
+     */
+    public static String objectToString(Serializable object) {
+        String encoded = null;
 
-		try {
-			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-			ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-			objectOutputStream.writeObject(object);
-			objectOutputStream.close();
-			encoded = new String(Base64.getEncoder().encode(byteArrayOutputStream.toByteArray()));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return encoded;
-	}
+        try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            objectOutputStream.writeObject(object);
+            objectOutputStream.close();
+            encoded = new String(Base64.getEncoder().encode(byteArrayOutputStream.toByteArray()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return encoded;
+    }
 
-	@SuppressWarnings("unchecked")
-	public static <T extends Serializable> T stringToObject(String string, Class<T> clazz) throws IllegalArgumentException {
-		byte[] bytes = Base64.getDecoder().decode(string.getBytes());
-		T object = null;
-		try {
-			ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(bytes));
-			object = (T) objectInputStream.readObject();
-		} catch (IOException | ClassNotFoundException | ClassCastException e) {
-			e.printStackTrace();
-		}
-		return object;
-	}
+    @SuppressWarnings("unchecked")
+    public static <T extends Serializable> T stringToObject(String string, Class<T> clazz) throws IllegalArgumentException {
+        byte[] bytes = Base64.getDecoder().decode(string.getBytes());
+        T object = null;
+        try {
+            ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(bytes));
+            object = (T) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException | ClassCastException e) {
+            e.printStackTrace();
+        }
+        return object;
+    }
 
 }

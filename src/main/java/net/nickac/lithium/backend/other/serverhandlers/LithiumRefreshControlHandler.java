@@ -32,5 +32,5 @@ import java.util.UUID;
  * Created by NickAc for Lithium!
  */
 public interface LithiumRefreshControlHandler {
-	void onRefresh(UUID viewer, LControl c);
+    void onRefresh(UUID viewer, LControl c);
 }

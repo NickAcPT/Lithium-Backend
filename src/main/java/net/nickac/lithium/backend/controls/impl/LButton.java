@@ -36,25 +36,25 @@ import java.util.UUID;
  */
 public class LButton extends LControl {
 
-	public LButton(String text) {
-		setText(text);
-	}
+    public LButton(String text) {
+        setText(text);
+    }
 
-	//Event Start
-	private transient List<PropertyChangedHandler<LButton>> buttonActionHandlers = new ArrayList<>();
+    //Event Start
+    private transient List<PropertyChangedHandler<LButton>> buttonActionHandlers = new ArrayList<>();
 
-	public LButton onButtonClick(PropertyChangedHandler<LButton> hl) {
-		buttonActionHandlers.add(hl);
-		return this;
-	}
+    public LButton onButtonClick(PropertyChangedHandler<LButton> hl) {
+        buttonActionHandlers.add(hl);
+        return this;
+    }
 
-	public void invokeButtonClick(UUID invoker) {
-		buttonActionHandlers.forEach(h -> h.handleEvent(this, invoker));
-	}
-	//End Event
+    public void invokeButtonClick(UUID invoker) {
+        buttonActionHandlers.forEach(h -> h.handleEvent(this, invoker));
+    }
+    //End Event
 
-	@Override
-	public boolean canReceiveUserInput() {
-		return true;
-	}
+    @Override
+    public boolean canReceiveUserInput() {
+        return true;
+    }
 }

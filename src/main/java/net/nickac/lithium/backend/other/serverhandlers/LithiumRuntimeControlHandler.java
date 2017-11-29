@@ -33,7 +33,7 @@ import java.util.UUID;
  * Criado por NickAc em 12:11 PM 14/10/2017
  */
 public interface LithiumRuntimeControlHandler {
-	void addControl(LControl c, LContainer ct, UUID viewer);
+    void addControl(LControl c, LContainer ct, UUID viewer);
 
-	void removeControl(LControl c, LContainer ct, UUID viewer);
+    void removeControl(LControl c, LContainer ct, UUID viewer);
 }

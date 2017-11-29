@@ -29,61 +29,61 @@ package net.nickac.lithium.backend.other.objects;
  * Created by NickAc for Lithium!
  */
 public class Rectangle {
-	public Rectangle(Point corner, Dimension size) {
-		this.corner = corner;
-		this.size = size;
-	}
+    public Rectangle(Point corner, Dimension size) {
+        this.corner = corner;
+        this.size = size;
+    }
 
-	public Rectangle(int x, int y, int width, int height) {
-		this.corner = new Point(x, y);
-		this.size = new Dimension(width, height);
-	}
+    public Rectangle(int x, int y, int width, int height) {
+        this.corner = new Point(x, y);
+        this.size = new Dimension(width, height);
+    }
 
-	private Point corner = Point.EMPTY;
-	private Dimension size = Dimension.EMPTY;
+    private Point corner = Point.EMPTY;
+    private Dimension size = Dimension.EMPTY;
 
-	public static Rectangle fromLTRB(int left, int top, int right, int bottom) {
-		return new Rectangle(left, top, right - left, bottom - top);
-	}
+    public static Rectangle fromLTRB(int left, int top, int right, int bottom) {
+        return new Rectangle(left, top, right - left, bottom - top);
+    }
 
-	public int getX() {
-		return corner.getX();
-	}
+    public int getX() {
+        return corner.getX();
+    }
 
-	public int getY() {
-		return corner.getY();
-	}
+    public int getY() {
+        return corner.getY();
+    }
 
-	public int getWidth() {
-		return size.getWidth();
-	}
+    public int getWidth() {
+        return size.getWidth();
+    }
 
-	public int getHeight() {
-		return size.getHeight();
-	}
+    public int getHeight() {
+        return size.getHeight();
+    }
 
-	public int getTop() {
-		return corner.getY();
-	}
+    public int getTop() {
+        return corner.getY();
+    }
 
-	public int getRight() {
-		return corner.getX() + size.getWidth();
-	}
+    public int getRight() {
+        return corner.getX() + size.getWidth();
+    }
 
-	public int getBottom() {
-		return corner.getY() + size.getHeight();
-	}
+    public int getBottom() {
+        return corner.getY() + size.getHeight();
+    }
 
-	public int getLeft() {
-		return corner.getX();
-	}
+    public int getLeft() {
+        return corner.getX();
+    }
 
-	public Rectangle inflate(int x, int y) {
-		return new Rectangle(corner.getX() - x, corner.getY() - y, size.getWidth() + x * 2, size.getHeight() + y * 2);
-	}
+    public Rectangle inflate(int x, int y) {
+        return new Rectangle(corner.getX() - x, corner.getY() - y, size.getWidth() + x * 2, size.getHeight() + y * 2);
+    }
 
-	public boolean contains(Point p) {
-		return p.getX() >= getLeft() && p.getX() <= getRight() && p.getY() >= getTop() && p.getY() <= getBottom();
-	}
+    public boolean contains(Point p) {
+        return p.getX() >= getLeft() && p.getX() <= getRight() && p.getY() >= getTop() && p.getY() <= getBottom();
+    }
 
 }

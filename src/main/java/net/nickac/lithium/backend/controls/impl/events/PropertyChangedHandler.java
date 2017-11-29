@@ -32,5 +32,5 @@ import java.util.UUID;
  * Created by NickAc for Lithium!
  */
 public interface PropertyChangedHandler<T extends LControl> {
-	void handleEvent(T sender, UUID invoker);
+    void handleEvent(T sender, UUID invoker);
 }

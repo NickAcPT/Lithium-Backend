@@ -39,88 +39,88 @@ import java.util.UUID;
  * Created by NickAc for Lithium!
  */
 public class LPanel extends LControl implements LContainer {
-	public LPanel() {
-		child = new HashMap<>();
-	}
+    public LPanel() {
+        child = new HashMap<>();
+    }
 
-	private Map<UUID, LControl> child;
+    private Map<UUID, LControl> child;
 
-	@Override
-	public boolean canReceiveUserInput() {
-		return false;
-	}
+    @Override
+    public boolean canReceiveUserInput() {
+        return false;
+    }
 
-	@Override
-	public void addControl(LControl c) {
-		c.setParent(this);
-		child.put(c.getUUID(), c);
-		refresh();
-		try {
-			if (LithiumConstants.onControlRuntime != null && getViewer() != null) {
-				LithiumConstants.onControlRuntime.addControl(c, this, getViewer());
-			}
-		} catch (NullPointerException ex) {
-			//Sorry! I had to do this....
-		}
-	}
+    @Override
+    public void addControl(LControl c) {
+        c.setParent(this);
+        child.put(c.getUUID(), c);
+        refresh();
+        try {
+            if (LithiumConstants.onControlRuntime != null && getViewer() != null) {
+                LithiumConstants.onControlRuntime.addControl(c, this, getViewer());
+            }
+        } catch (NullPointerException ex) {
+            //Sorry! I had to do this....
+        }
+    }
 
-	@Override
-	public void addControl(LControl c, int x, int y, int w, int h) {
-		c.setSize(new Dimension(w, h));
-		c.setLocation(new Point(x, y));
-		addControl(c);
-	}
+    @Override
+    public void addControl(LControl c, int x, int y, int w, int h) {
+        c.setSize(new Dimension(w, h));
+        c.setLocation(new Point(x, y));
+        addControl(c);
+    }
 
-	public void addControl(LControl c, int w, int h) {
-		c.setSize(new Dimension(w, h));
-		addControl(c);
-	}
+    public void addControl(LControl c, int w, int h) {
+        c.setSize(new Dimension(w, h));
+        addControl(c);
+    }
 
-	public int getTotalWidth() {
-		int width = 0;
-		for (LControl control : child.values()) {
-			width = Math.max(width, control.getRight());
-		}
-		return width;
-	}
+    public int getTotalWidth() {
+        int width = 0;
+        for (LControl control : child.values()) {
+            width = Math.max(width, control.getRight());
+        }
+        return width;
+    }
 
-	public int getTotalHeight() {
-		int height = 0;
-		for (LControl control : child.values()) {
-			height = Math.max(height, control.getBottom());
-		}
-		return height;
-	}
+    public int getTotalHeight() {
+        int height = 0;
+        for (LControl control : child.values()) {
+            height = Math.max(height, control.getBottom());
+        }
+        return height;
+    }
 
 
-	@Override
-	public UUID getViewer() {
-		return getParent().getViewer();
-	}
+    @Override
+    public UUID getViewer() {
+        return getParent().getViewer();
+    }
 
-	public Collection<LControl> getControls() {
-		return child.values();
-	}
+    public Collection<LControl> getControls() {
+        return child.values();
+    }
 
-	@SuppressWarnings("WeakerAccess")
-	@Override
-	public void removeControl(UUID c) {
-		LControl toRemove = child.getOrDefault(c, null);
-		child.remove(c);
-		refresh();
-		if (toRemove != null) {
-			try {
-				if (LithiumConstants.onControlRuntime != null && getViewer() != null) {
-					LithiumConstants.onControlRuntime.removeControl(toRemove, this, getViewer());
-				}
-			} catch (NullPointerException ex) {
-				//Sorry! I had to do this....
-			}
-		}
-	}
+    @SuppressWarnings("WeakerAccess")
+    @Override
+    public void removeControl(UUID c) {
+        LControl toRemove = child.getOrDefault(c, null);
+        child.remove(c);
+        refresh();
+        if (toRemove != null) {
+            try {
+                if (LithiumConstants.onControlRuntime != null && getViewer() != null) {
+                    LithiumConstants.onControlRuntime.removeControl(toRemove, this, getViewer());
+                }
+            } catch (NullPointerException ex) {
+                //Sorry! I had to do this....
+            }
+        }
+    }
 
-	@Override
-	public void removeControl(LControl c) {
-		removeControl(c.getUUID());
-	}
+    @Override
+    public void removeControl(LControl c) {
+        removeControl(c.getUUID());
+    }
 }

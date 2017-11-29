@@ -32,5 +32,5 @@ import java.util.UUID;
  * Created by NickAc for Lithium!
  */
 public interface LithiumCloseWindowHandler {
-	void closeWindow(LWindow window, UUID viewer);
+    void closeWindow(LWindow window, UUID viewer);
 }

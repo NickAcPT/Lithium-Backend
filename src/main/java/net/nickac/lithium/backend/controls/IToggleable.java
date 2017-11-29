@@ -29,7 +29,7 @@ package net.nickac.lithium.backend.controls;
  * Created by NickAc for Lithium!
  */
 public interface IToggleable {
-	boolean isChecked();
+    boolean isChecked();
 
-	void setChecked(boolean checked);
+    void setChecked(boolean checked);
 }

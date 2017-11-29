@@ -33,7 +33,13 @@ import net.nickac.lithium.backend.other.serverhandlers.LithiumRuntimeControlHand
  */
 public class LithiumConstants {
 
-    public final static String VERSION="1.3";
+    public final static String VERSION = "1.3";
+    //End  Overlay Section
+    public final static int CENTERED_CONSTANT = -2; //LEGACY
+    //Start Event Section
+    public static LithiumRefreshControlHandler onRefresh = null;
+    public static LithiumCloseWindowHandler onClose = null;
+    public static LithiumRuntimeControlHandler onControlRuntime = null;
 
     public static class TO_SERVER {
         public final static String WINDOW_OPEN = "WINDOW_OPEN"; //UUID (Client->Server)
@@ -44,6 +50,7 @@ public class LithiumConstants {
         public final static String TOGGLE_ACTION = "TOGGLE_ACTION"; //UUID (Client->Server)
         public final static String CONNECTION_ESTABLISHED = "CONNECTION_ESTABLISHED"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
     }
+
     public static class TO_CLIENT {
         public final static String RECEIVE_WINDOW = "RECEIVE_WINDOW"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
         public final static String CONTROL_CHANGED = "CONTROL_CHANGED"; //OBJECT SERIALIZED WITH BASE64 (Server->Client)
@@ -54,16 +61,6 @@ public class LithiumConstants {
         public final static String REMOVE_OVERLAY = "REMOVE_OVERLAY"; // (Server->Client)
 
     }
-
-    //Start Event Section
-    public static LithiumRefreshControlHandler onRefresh = null;
-    public static LithiumCloseWindowHandler onClose = null;
-    public static LithiumRuntimeControlHandler onControlRuntime = null;
-
-    //End  Overlay Section
-    public final static int CENTERED_CONSTANT = -2; //LEGACY
-
-
 
 
 }

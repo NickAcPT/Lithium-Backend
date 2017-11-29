@@ -32,75 +32,75 @@ import net.nickac.lithium.backend.other.objects.Color;
  */
 public class LProgressBar extends LControl {
 
-	public LProgressBar() {
-	}
+    public LProgressBar() {
+    }
 
-	public LProgressBar(int progress) {
-		this.progress = progress;
-	}
+    public LProgressBar(int progress) {
+        this.progress = progress;
+    }
 
-	private Color progressColor = Color.GREEN;
-	private Color borderColor = Color.GRAY;
-	private Color insideColor = Color.BLACK;
-	private int progress = 0;
-	private int minValue = 0;
-	private int maxValue = 100;
+    private Color progressColor = Color.GREEN;
+    private Color borderColor = Color.GRAY;
+    private Color insideColor = Color.BLACK;
+    private int progress = 0;
+    private int minValue = 0;
+    private int maxValue = 100;
 
-	@Override
-	public boolean canReceiveUserInput() {
-		return false;
-	}
+    @Override
+    public boolean canReceiveUserInput() {
+        return false;
+    }
 
-	public int getProgress() {
-		return progress;
-	}
+    public int getProgress() {
+        return progress;
+    }
 
-	public void setProgress(int progress) {
-		this.progress = progress;
-		refresh();
-	}
+    public void setProgress(int progress) {
+        this.progress = progress;
+        refresh();
+    }
 
-	public int getMinValue() {
-		return minValue;
-	}
+    public int getMinValue() {
+        return minValue;
+    }
 
-	public void setMinValue(int minValue) {
-		this.minValue = minValue;
-		refresh();
-	}
+    public void setMinValue(int minValue) {
+        this.minValue = minValue;
+        refresh();
+    }
 
-	public int getMaxValue() {
-		return maxValue;
-	}
+    public int getMaxValue() {
+        return maxValue;
+    }
 
-	public void setMaxValue(int maxValue) {
-		this.maxValue = maxValue;
-		refresh();
-	}
+    public void setMaxValue(int maxValue) {
+        this.maxValue = maxValue;
+        refresh();
+    }
 
-	public Color getProgressColor() {
-		return progressColor;
-	}
+    public Color getProgressColor() {
+        return progressColor;
+    }
 
-	public void setProgressColor(Color progressColor) {
-		this.progressColor = progressColor;
-	}
+    public void setProgressColor(Color progressColor) {
+        this.progressColor = progressColor;
+    }
 
-	public Color getBorderColor() {
-		return borderColor;
-	}
+    public Color getBorderColor() {
+        return borderColor;
+    }
 
-	public void setBorderColor(Color borderColor) {
-		this.borderColor = borderColor;
-	}
+    public void setBorderColor(Color borderColor) {
+        this.borderColor = borderColor;
+    }
 
-	public Color getInsideColor() {
-		return insideColor;
-	}
+    public Color getInsideColor() {
+        return insideColor;
+    }
 
-	public void setInsideColor(Color insideColor) {
-		this.insideColor = insideColor;
-	}
+    public void setInsideColor(Color insideColor) {
+        this.insideColor = insideColor;
+    }
 
 
 }

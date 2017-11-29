@@ -36,8 +36,8 @@ import java.io.Serializable;
  */
 @AllArgsConstructor
 public class Dimension implements Serializable {
-	public static Dimension EMPTY = new Dimension(20, 20);
-	@Getter
-	@Setter
-	int width, height;
+    public static Dimension EMPTY = new Dimension(20, 20);
+    @Getter
+    @Setter
+    int width, height;
 }

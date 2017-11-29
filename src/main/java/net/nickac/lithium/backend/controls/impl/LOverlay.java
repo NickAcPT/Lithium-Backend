@@ -38,67 +38,67 @@ import java.util.UUID;
  * Created by NickAc for Lithium!
  */
 public class LOverlay extends LControl implements LContainerViewable {
-	private UUID viewer;
-	private Map<UUID, LControl> controls = new HashMap<>();
+    private UUID viewer;
+    private Map<UUID, LControl> controls = new HashMap<>();
 
-	@Override
-	public boolean canReceiveUserInput() {
-		return false;
-	}
+    @Override
+    public boolean canReceiveUserInput() {
+        return false;
+    }
 
-	@Override
-	public UUID getViewer() {
-		return viewer;
-	}
+    @Override
+    public UUID getViewer() {
+        return viewer;
+    }
 
-	public void setViewer(UUID viewer) {
-		this.viewer = viewer;
-	}
+    public void setViewer(UUID viewer) {
+        this.viewer = viewer;
+    }
 
-	@Override
-	public Collection<LControl> getControls() {
-		return controls.values();
-	}
+    @Override
+    public Collection<LControl> getControls() {
+        return controls.values();
+    }
 
-	@Override
-	public void addControl(LControl c) {
-		//We can't allow stuff that needs user input.
-		//It's an overlay, not a GUI!
-		if (c.canReceiveUserInput()) {
-			return;
-		}
-		controls.put(c.getUUID(), c);
-		internalAddControl(c);
-	}
+    @Override
+    public void addControl(LControl c) {
+        //We can't allow stuff that needs user input.
+        //It's an overlay, not a GUI!
+        if (c.canReceiveUserInput()) {
+            return;
+        }
+        controls.put(c.getUUID(), c);
+        internalAddControl(c);
+    }
 
-	private void internalAddControl(LControl c) {
-		c.setParent(this);
-	}
+    private void internalAddControl(LControl c) {
+        c.setParent(this);
+    }
 
-	private void internalRemoveControl(UUID c) {
+    private void internalRemoveControl(UUID c) {
 
-	}
+    }
 
-	@Override
-	public void addControl(LControl c, int x, int y, int w, int h) {
-		c.setSize(new Dimension(w, h));
-		c.setLocation(new Point(x, y));
-		addControl(c);
-	}
+    @Override
+    public void addControl(LControl c, int x, int y, int w, int h) {
+        c.setSize(new Dimension(w, h));
+        c.setLocation(new Point(x, y));
+        addControl(c);
+    }
 
-	@Override
-	public void addControl(LControl c, int w, int h) {
-		c.setSize(new Dimension(w, h));
-		addControl(c);
-	}
+    @Override
+    public void addControl(LControl c, int w, int h) {
+        c.setSize(new Dimension(w, h));
+        addControl(c);
+    }
 
-	@Override
-	public void removeControl(UUID c) {
-		internalRemoveControl(c);
-	}
+    @Override
+    public void removeControl(UUID c) {
+        internalRemoveControl(c);
+    }
 
-	@Override
-	public void removeControl(LControl c) {
-		internalRemoveControl(c.getUUID());
-	}
+    @Override
+    public void removeControl(LControl c) {
+        internalRemoveControl(c.getUUID());
+    }
 }

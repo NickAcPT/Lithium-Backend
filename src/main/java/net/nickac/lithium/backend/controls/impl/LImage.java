@@ -31,39 +31,39 @@ import net.nickac.lithium.backend.controls.LControl;
  */
 public class LImage extends LControl {
 
-	public LImage(String imageUrl) {
-		setImageURL(imageUrl);
-	}
+    public LImage(String imageUrl) {
+        setImageURL(imageUrl);
+    }
 
-	private String imageURL = "";
-	private ImageDisplayOption displayOption = ImageDisplayOption.STRECH;
+    private String imageURL = "";
+    private ImageDisplayOption displayOption = ImageDisplayOption.STRECH;
 
-	public String getImageURL() {
-		return imageURL;
-	}
+    public String getImageURL() {
+        return imageURL;
+    }
 
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
-	}
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
-	public ImageDisplayOption getDisplayOption() {
-		return displayOption;
-	}
+    public ImageDisplayOption getDisplayOption() {
+        return displayOption;
+    }
 
-	public void setDisplayOption(ImageDisplayOption displayOption) {
-		this.displayOption = displayOption;
-	}
+    public void setDisplayOption(ImageDisplayOption displayOption) {
+        this.displayOption = displayOption;
+    }
 
-	@Override
-	public boolean canReceiveUserInput() {
-		return false;
-	}
+    @Override
+    public boolean canReceiveUserInput() {
+        return false;
+    }
 
-	public enum ImageDisplayOption {
-		TILED, //FUTURE
-		AUTO_SIZE,
-		STRECH, //FUTURE
-		NONE //The same as auto_size
-	}
+    public enum ImageDisplayOption {
+        TILED, //FUTURE
+        AUTO_SIZE,
+        STRECH, //FUTURE
+        NONE //The same as auto_size
+    }
 
 }

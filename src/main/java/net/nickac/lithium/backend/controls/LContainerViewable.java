@@ -31,6 +31,7 @@ public interface LContainerViewable extends LContainer {
 
     /**
      * Sets the viewer of this container
+     *
      * @param viewer The viewer of this container
      */
     void setViewer(UUID viewer);

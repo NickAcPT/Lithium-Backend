@@ -37,76 +37,76 @@ import java.util.UUID;
  * Created by NickAc for Lithium!
  */
 public class LCheckBox extends LControl implements IToggleable {
-	public LCheckBox(String text) {
-		setText(text);
-	}
+    public LCheckBox(String text) {
+        setText(text);
+    }
 
-	private Color foreColor = Color.WHITE;
-	private Color outsideColor = Color.GRAY;
-	private Color insideColor = Color.BLACK;
-	private Color checkedColor = Color.GRAY;
-	private boolean checked;
-	private transient List<PropertyChangedHandler<LCheckBox>> toggleHandlers = new ArrayList<>();
+    private Color foreColor = Color.WHITE;
+    private Color outsideColor = Color.GRAY;
+    private Color insideColor = Color.BLACK;
+    private Color checkedColor = Color.GRAY;
+    private boolean checked;
+    private transient List<PropertyChangedHandler<LCheckBox>> toggleHandlers = new ArrayList<>();
 
-	@Override
-	public boolean canReceiveUserInput() {
-		return true;
-	}
+    @Override
+    public boolean canReceiveUserInput() {
+        return true;
+    }
 
-	public Color getForeColor() {
-		return foreColor;
-	}
+    public Color getForeColor() {
+        return foreColor;
+    }
 
-	public void setForeColor(Color foreColor) {
-		this.foreColor = foreColor;
-	}
+    public void setForeColor(Color foreColor) {
+        this.foreColor = foreColor;
+    }
 
-	public Color getOutsideColor() {
-		return outsideColor;
-	}
+    public Color getOutsideColor() {
+        return outsideColor;
+    }
 
-	public void setOutsideColor(Color outsideColor) {
-		this.outsideColor = outsideColor;
-	}
+    public void setOutsideColor(Color outsideColor) {
+        this.outsideColor = outsideColor;
+    }
 
-	public Color getInsideColor() {
-		return insideColor;
-	}
+    public Color getInsideColor() {
+        return insideColor;
+    }
 
-	public void setInsideColor(Color insideColor) {
-		this.insideColor = insideColor;
-	}
+    public void setInsideColor(Color insideColor) {
+        this.insideColor = insideColor;
+    }
 
-	public Color getCheckedColor() {
-		return checkedColor;
-	}
+    public Color getCheckedColor() {
+        return checkedColor;
+    }
 
-	public void setCheckedColor(Color checkedColor) {
-		this.checkedColor = checkedColor;
-	}
+    public void setCheckedColor(Color checkedColor) {
+        this.checkedColor = checkedColor;
+    }
 
-	@Override
-	public boolean isChecked() {
-		return checked;
-	}
+    @Override
+    public boolean isChecked() {
+        return checked;
+    }
 
-	@Override
-	public void setChecked(boolean checked) {
-		setCheckedInternal(checked);
-		refresh();
-	}
+    @Override
+    public void setChecked(boolean checked) {
+        setCheckedInternal(checked);
+        refresh();
+    }
 
-	public LCheckBox onToggled(PropertyChangedHandler<LCheckBox> hl) {
-		toggleHandlers.add(hl);
-		return this;
-	}
+    public LCheckBox onToggled(PropertyChangedHandler<LCheckBox> hl) {
+        toggleHandlers.add(hl);
+        return this;
+    }
 
-	public void invokeToggled(UUID invoker) {
-		toggleHandlers.forEach(h -> h.handleEvent(this, invoker));
-	}
+    public void invokeToggled(UUID invoker) {
+        toggleHandlers.forEach(h -> h.handleEvent(this, invoker));
+    }
 
 
-	public void setCheckedInternal(boolean checked) {
-		this.checked = checked;
-	}
+    public void setCheckedInternal(boolean checked) {
+        this.checked = checked;
+    }
 }

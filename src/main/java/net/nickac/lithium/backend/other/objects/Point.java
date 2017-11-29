@@ -36,12 +36,12 @@ import java.io.Serializable;
  */
 @AllArgsConstructor
 public class Point implements Serializable {
-	public static Point EMPTY = new Point(0, 0);
-	@Getter
-	@Setter
-	int x, y;
+    public static Point EMPTY = new Point(0, 0);
+    @Getter
+    @Setter
+    int x, y;
 
-	public static boolean isEmpty(Point p) {
-		return p.getX() == EMPTY.getX() && p.getY() == EMPTY.getY();
-	}
+    public static boolean isEmpty(Point p) {
+        return p.getX() == EMPTY.getX() && p.getY() == EMPTY.getY();
+    }
 }

@@ -38,92 +38,92 @@ import java.util.UUID;
  */
 public class LSlider extends LControl {
 
-	public LSlider() {
-	}
+    public LSlider() {
+    }
 
-	public LSlider(int value) {
-		setValue(value);
-	}
+    public LSlider(int value) {
+        setValue(value);
+    }
 
-	public LSlider(int value, int min, int max) {
-		setValue(value);
-		setMinValue(min);
-		setMaxValue(max);
-	}
+    public LSlider(int value, int min, int max) {
+        setValue(value);
+        setMinValue(min);
+        setMaxValue(max);
+    }
 
-	private transient List<PropertyChangedHandler<LSlider>> valueChangedHandlers = new ArrayList<>();
-	private Color borderColor = Color.WHITE;
-	private Color backgroundColor = Color.BLACK;
-	private SliderType sliderType = SliderType.HORIZONTAL;
-	private int minimumValue = 0;
-	private int maximumValue = 100;
-	private int value = 0;
+    private transient List<PropertyChangedHandler<LSlider>> valueChangedHandlers = new ArrayList<>();
+    private Color borderColor = Color.WHITE;
+    private Color backgroundColor = Color.BLACK;
+    private SliderType sliderType = SliderType.HORIZONTAL;
+    private int minimumValue = 0;
+    private int maximumValue = 100;
+    private int value = 0;
 
-	public SliderType getSliderType() {
-		return sliderType;
-	}
+    public SliderType getSliderType() {
+        return sliderType;
+    }
 
-	public void setSliderType(SliderType sliderType) {
-		this.sliderType = sliderType;
-	}
+    public void setSliderType(SliderType sliderType) {
+        this.sliderType = sliderType;
+    }
 
-	public LSlider onValueChanged(PropertyChangedHandler<LSlider> hl) {
-		valueChangedHandlers.add(hl);
-		return this;
-	}
+    public LSlider onValueChanged(PropertyChangedHandler<LSlider> hl) {
+        valueChangedHandlers.add(hl);
+        return this;
+    }
 
-	public void invokeValueChanged(UUID invoker) {
-		valueChangedHandlers.forEach(h -> h.handleEvent(this, invoker));
-	}
+    public void invokeValueChanged(UUID invoker) {
+        valueChangedHandlers.forEach(h -> h.handleEvent(this, invoker));
+    }
 
-	public int getMinValue() {
-		return minimumValue;
-	}
+    public int getMinValue() {
+        return minimumValue;
+    }
 
-	public void setMinValue(int minimumValue) {
-		this.minimumValue = minimumValue;
-	}
+    public void setMinValue(int minimumValue) {
+        this.minimumValue = minimumValue;
+    }
 
-	public int getMaxValue() {
-		return maximumValue;
-	}
+    public int getMaxValue() {
+        return maximumValue;
+    }
 
-	public void setMaxValue(int maximumValue) {
-		this.maximumValue = maximumValue;
-	}
+    public void setMaxValue(int maximumValue) {
+        this.maximumValue = maximumValue;
+    }
 
-	public int getValue() {
-		return value;
-	}
+    public int getValue() {
+        return value;
+    }
 
-	public void setValue(int value) {
-		this.value = value;
-	}
+    public void setValue(int value) {
+        this.value = value;
+    }
 
-	@Override
-	public boolean canReceiveUserInput() {
-		return true;
-	}
+    @Override
+    public boolean canReceiveUserInput() {
+        return true;
+    }
 
-	public Color getBorderColor() {
-		return borderColor;
-	}
+    public Color getBorderColor() {
+        return borderColor;
+    }
 
-	public void setBorderColor(Color borderColor) {
-		this.borderColor = borderColor;
-	}
+    public void setBorderColor(Color borderColor) {
+        this.borderColor = borderColor;
+    }
 
-	public Color getBackgroundColor() {
-		return backgroundColor;
-	}
+    public Color getBackgroundColor() {
+        return backgroundColor;
+    }
 
-	public void setBackgroundColor(Color backgroundColor) {
-		this.backgroundColor = backgroundColor;
-	}
+    public void setBackgroundColor(Color backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
 
-	public enum SliderType {
-		HORIZONTAL,
-		VERTICAL
-	}
+    public enum SliderType {
+        HORIZONTAL,
+        VERTICAL
+    }
 
 }
